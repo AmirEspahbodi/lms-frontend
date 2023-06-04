@@ -1,5 +1,5 @@
-import Header from "../Core/components/Header";
-import LoginUser from "../Domain/UseCases/LoginUser";
+import Header from "../../Core/components/Header";
+import LoginUser from "./widgets/LoginUser";
 
 function LoginPage() {
   return (

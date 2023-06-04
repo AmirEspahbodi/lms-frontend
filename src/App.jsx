@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import StudentSignupView from "./presentation/students/SignupView";
-import LoginView from "./presentation/LoginView";
+import StudentSignupView from "./presentation/students/Signup/SignupView";
+import LoginView from "./presentation/Login/LoginView";
 import "./Core/styles/App.css";
 
 function App() {

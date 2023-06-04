@@ -12,6 +12,7 @@ export default function Input({
   isRequired = false,
   placeholder,
   customClass,
+  error,
 }) {
   return (
     <div className="my-5">
@@ -28,6 +29,7 @@ export default function Input({
         className={fixedInputClass + customClass}
         placeholder={placeholder}
       />
+      <p className="signup_error">{error}</p>
     </div>
   );
 }

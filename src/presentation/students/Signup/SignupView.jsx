@@ -1,5 +1,5 @@
-import Header from "../../Core/components/Header";
-import SignupUser from "../../Domain/UseCases/Students/SignupUser";
+import Header from "../../../Core/components/Header";
+import SignupUser from "./widgets/SignupUser";
 
 export default function SignupPage() {
   return (

@@ -59,6 +59,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.signup_error {
+  color: #ff000069;
+}
+
+.signup_error_field {
+  border-color: #ff000069;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
