@@ -1,5 +1,6 @@
 import Header from "../../../Core/components/Header";
-import SignupUser from "./widgets/SignupUser";
+import APP_ROUTES from "../../../Core/constants/Routs";
+import SignupWidget from "./components/SignupWidget";
 
 export default function SignupPage() {
   return (
@@ -8,9 +9,9 @@ export default function SignupPage() {
         heading="Signup to create an account"
         paragraph="Already have an account? "
         linkName="Login"
-        linkUrl="/login/"
+        linkUrl={APP_ROUTES.LOGIN_USER}
       />
-      <SignupUser />
+      <SignupWidget />
     </>
   );
 }

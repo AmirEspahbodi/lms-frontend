@@ -5,6 +5,7 @@ import FormAction from "../../../../Core/components/FormAction";
 import Input from "../../../../Core/components/Input";
 import StudentSignupUseCase from "../../../../Domain/UseCases/Students/signupUseCase";
 import Failure from "../../../../Core/Failure/Failure";
+import API_ROUTES from "../../../../Core/constants/Routs";
 
 const fields = signupFields;
 let fieldsState = {};
@@ -28,11 +29,19 @@ export default function Signup() {
       if (result instanceof Failure) {
         handleErrors(result);
       } else {
+        clearErrors();
         console.log("signup result is");
         console.log(result);
-        navigation("/login");
+        navigation(API_ROUTES.LOGIN);
       }
     });
+  };
+
+  const clearErrors = () => {
+    let newErrorState = {};
+    fields.forEach((field) => (newErrorState[field.id] = null));
+    newErrorState.non_field_errors = null;
+    setErrorState(newErrorState);
   };
 
   const handleErrors = (result) => {
@@ -48,8 +57,6 @@ export default function Signup() {
     newErrorState.phone_number = result.user.phone_number;
     newErrorState.password1 = result.user.password1;
     newErrorState.password2 = result.user.password2;
-    console.log("errorState errors is");
-    console.log(newErrorState);
     setErrorState(newErrorState);
   };
 

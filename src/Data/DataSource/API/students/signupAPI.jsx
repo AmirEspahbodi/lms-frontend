@@ -1,13 +1,13 @@
 import axios from "axios";
-import URLS from "../../../../Core/constants/URLS";
 import SignUpFailure from "../../../../Core/Failure/signupFailure";
 import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure";
 import UnknownFailure from "../../../../Core/Failure/UnknownFailure";
 import StudentSignUp from "../../../../Domain/Entities/students/signupEntity";
+import SERVER_APIS from "../../../../Core/constants/ServerAPIs";
 
 async function StudentSignupAPI(signupData) {
   try {
-    const response = await axios.post(URLS.STUDENT_SIGNUP, signupData);
+    const response = await axios.post(SERVER_APIS.STUDENT_SIGNUP, signupData);
     return new StudentSignUp(response.data.detail);
   } catch (error) {
     if (error.response) {
