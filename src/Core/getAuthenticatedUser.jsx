@@ -1,11 +1,22 @@
+import axios from "axios";
+import SERVER_APIS from "./constants/ServerAPIs";
+
 async function getAuthenticatedUser() {
-  /*
-  return authenticated, user
-  could be {false, null}, {false, userObject}, {true, userObject} 
-  */
-  const tokenString = sessionStorage.getItem("token");
-  const userToken = JSON.parse(tokenString);
-  if (!userToken) return false, null;
+  const tokenDataString = sessionStorage.getItem("token");
+  const userDataString = sessionStorage.getItem("user");
+  console.log(tokenDataString);
+  console.log(userDataString);
+  const tokenData = JSON.parse(tokenDataString);
+  const userData = JSON.parse(userDataString);
+  if (!tokenData) return { authenticated: false, user: userData };
+  axios.defaults.headers.common["Authorization"] = `Token ${tokenData.token}`;
+
+  try {
+    const token_verify = await axios.post(SERVER_APIS.TOKEN_VERIFY);
+    return { authenticated: true, user: userData };
+  } catch (error) {
+    return { authenticated: false, user: userData };
+  }
 }
 
 export default getAuthenticatedUser;

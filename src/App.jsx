@@ -6,7 +6,6 @@ import PasswordResetView from "./presentation/Password/Reset/PasswordReset";
 import EmailVerificationView from "./presentation/EmailVerification/EmailVerificationView";
 import APP_ROUTES from "./Core/constants/Routs";
 import Dashboard from "./presentation/Dashboard/Dashboard";
-import Preferences from "./presentation/Preferences/Preferences";
 import SplashView from "./presentation/splash/splashView";
 import "./Core/styles/App.css";
 

@@ -13,7 +13,7 @@ async function LoginUseCase(loginState) {
     })
   );
   sessionStorage.setItem(
-    "token",
+    "user",
     JSON.stringify({
       user_id: result.user_id,
       username: result.username,
