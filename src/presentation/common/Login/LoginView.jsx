@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../../Core/components/Header";
+import Header from "../../../Core/components/Header";
 import LoginWidget from "./components/LoginWidget";
-import APP_ROUTES from "../../Core/constants/Routs";
-import useUser from "../../Core/customHooks";
+import APP_ROUTES from "../../../Core/constants/Routs";
+import useUser from "../../../Core/customHooks";
 
 function LoginPage() {
   const navigate = useNavigate();

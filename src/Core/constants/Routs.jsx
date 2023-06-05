@@ -5,7 +5,6 @@ const APP_ROUTES = {
   EMAIL_VERIFICATION: "/email/verification/",
   STUDENT_HOME: "/student/home/",
   TEACHER_HOME: "/student/home/",
-  DASHBOARD: "/dashboard/",
   NO_PAGE_FOR_YOUR_ROLE: "/preferenced/",
   SPLASH: "/",
 };

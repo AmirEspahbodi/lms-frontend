@@ -1,12 +1,16 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { React } from "react";
 import StudentSignupView from "./presentation/students/Signup/SignupView";
-import LoginView from "./presentation/Login/LoginView";
-import PasswordResetView from "./presentation/Password/Reset/PasswordReset";
-import EmailVerificationView from "./presentation/EmailVerification/EmailVerificationView";
 import APP_ROUTES from "./Core/constants/Routs";
-import Dashboard from "./presentation/Dashboard/Dashboard";
-import SplashView from "./presentation/splash/splashView";
+import StudentHomeView from "./presentation/students/home/StudentHomeView";
+import TeacherHomeView from "./presentation/teachers/home/TeeacherHomeView";
+
+import EmailVerificationView from "./presentation/common/EmailVerification/EmailVerificationView";
+import PasswordResetView from "./presentation/common/Password/Reset/PasswordReset";
+import NoHomeView from "./presentation/common/NoHome/NoHomeView";
+import SplashView from "./presentation/common/splash/splashView";
+import LoginView from "./presentation/common/Login/LoginView";
+
 import "./Core/styles/App.css";
 
 function App() {
@@ -29,12 +33,17 @@ function App() {
               path={APP_ROUTES.EMAIL_VERIFICATION}
               element={<EmailVerificationView />}
             />
-            <Route path={APP_ROUTES.DASHBOARD} element={<Dashboard />} />
-            <Route path={APP_ROUTES.STUDENT_HOME} element={<Dashboard />} />
-            <Route path={APP_ROUTES.TEACHER_HOME} element={<Dashboard />} />
+            <Route
+              path={APP_ROUTES.STUDENT_HOME}
+              element={<StudentHomeView />}
+            />
+            <Route
+              path={APP_ROUTES.TEACHER_HOME}
+              element={<TeacherHomeView />}
+            />
             <Route
               path={APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE}
-              element={<Dashboard />}
+              element={<NoHomeView />}
             />
           </Routes>
         </BrowserRouter>

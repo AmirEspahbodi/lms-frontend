@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import APP_ROUTES from "../../Core/constants/Routs";
-import useUser from "../../Core/customHooks";
+import APP_ROUTES from "../../../Core/constants/Routs";
+import useUser from "../../../Core/customHooks";
 APP_ROUTES;
 
 function SplashView() {
