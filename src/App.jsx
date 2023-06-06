@@ -41,10 +41,12 @@ function App() {
               path={APP_ROUTES.TEACHER_HOME}
               element={<TeacherHomeView />}
             />
+
             <Route
               path={APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE}
               element={<NoHomeView />}
             />
+            <Route path={APP_ROUTES.CONTACT_US} element={<NoHomeView />} />
           </Routes>
         </BrowserRouter>
       </div>

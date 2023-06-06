@@ -124,4 +124,30 @@ const signupFields = [
   },
 ];
 
-export { loginFields, signupFields };
+const EmailRequestCodeField = [
+  {
+    labelText: "Email ",
+    labelFor: "email",
+    id: "email",
+    name: "email",
+    type: "email",
+    autoComplete: "email",
+    isRequired: true,
+    placeholder: "Email address",
+  },
+];
+
+const SixDigitCodeField = [
+  {
+    labelText: "code",
+    labelFor: "code",
+    id: "code",
+    name: "code",
+    type: "number",
+    autoComplete: "code",
+    isRequired: true,
+    placeholder: "six digit code",
+  },
+];
+
+export { loginFields, signupFields, EmailRequestCodeField, SixDigitCodeField };
