@@ -61,7 +61,7 @@ export default function Signup() {
   };
 
   return (
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+    <form className="mt-8 space-y-6 auth-form" onSubmit={handleSubmit}>
       <div className="">
         {fields.map((field) => (
           <Input

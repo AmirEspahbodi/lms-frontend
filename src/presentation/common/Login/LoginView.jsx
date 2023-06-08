@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../../../Core/components/Header";
+import AuthHeader from "../../../Core/components/AuthHeader";
 import LoginWidget from "./components/LoginWidget";
 import APP_ROUTES from "../../../Core/constants/Routs";
 import useUser from "../../../Core/customHooks";
@@ -14,13 +14,17 @@ function LoginPage() {
   }
   return (
     <>
-      <Header
-        heading="Login to your account"
-        paragraph="Don't have an account yet? "
-        linkName="Signup"
-        linkUrl={APP_ROUTES.STUDENT_SIGNUP}
-      />
-      <LoginWidget />
+      <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <AuthHeader
+            heading="Login to your account"
+            paragraph="Don't have an account yet? "
+            linkName="Signup"
+            linkUrl={APP_ROUTES.STUDENT_SIGNUP}
+          />
+          <LoginWidget />
+        </div>
+      </div>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../../../Core/components/Header";
+import AuthHeader from "../../../Core/components/AuthHeader";
 import APP_ROUTES from "../../../Core/constants/Routs";
 import EmailVerificationVerify from "./components/EmailVerificationVerifyWidget";
 import EmailVerificationGetCode from "./components/EmailVerificationGetCodeWidget";
@@ -24,29 +24,37 @@ function EmailVerificationView() {
   if (isSendingEmail)
     return (
       <div>
-        <Header
-          heading="get code to verify email address"
-          paragraph="has any problem to get code? "
-          linkName="Contact Us"
-          linkUrl={APP_ROUTES.CONTACT_US}
-        />
-        <EmailVerificationGetCode
-          goToGetCode={goToGetCode}
-          emailState={emailState}
-          setEmailState={setEmailState}
-        />
+        <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md w-full space-y-8">
+            <AuthHeader
+              heading="get code to verify email address"
+              paragraph="has any problem to get code? "
+              linkName="Contact Us"
+              linkUrl={APP_ROUTES.CONTACT_US}
+            />
+            <EmailVerificationGetCode
+              goToGetCode={goToGetCode}
+              emailState={emailState}
+              setEmailState={setEmailState}
+            />
+          </div>
+        </div>
       </div>
     );
   else
     return (
       <div>
-        <Header
-          heading="send code to verify email address"
-          paragraph="has any problem to send code? "
-          linkName="Contact Us"
-          linkUrl={APP_ROUTES.CONTACT_US}
-        />
-        <EmailVerificationVerify />
+        <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md w-full space-y-8">
+            <AuthHeader
+              heading="send code to verify email address"
+              paragraph="has any problem to send code? "
+              linkName="Contact Us"
+              linkUrl={APP_ROUTES.CONTACT_US}
+            />
+            <EmailVerificationVerify />
+          </div>
+        </div>
       </div>
     );
 }

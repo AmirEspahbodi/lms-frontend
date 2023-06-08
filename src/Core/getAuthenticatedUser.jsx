@@ -4,8 +4,6 @@ import SERVER_APIS from "./constants/ServerAPIs";
 async function getAuthenticatedUser() {
   const tokenDataString = sessionStorage.getItem("token");
   const userDataString = sessionStorage.getItem("user");
-  console.log(tokenDataString);
-  console.log(userDataString);
   const tokenData = JSON.parse(tokenDataString);
   const userData = JSON.parse(userDataString);
   if (!tokenData) return { authenticated: false, user: userData };

@@ -56,7 +56,7 @@ function EmailVerificationSendCode({}) {
   };
   return (
     <>
-      <form className="mt-8 space-y-6" onSubmit={handelSubmit}>
+      <form className="mt-8 space-y-6 auth-form" onSubmit={handelSubmit}>
         <div className="-space-y-px">
           {fields.map((field) => (
             <Input

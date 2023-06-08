@@ -1,5 +1,4 @@
-import Failure from "../../Core/Failure/Failure";
-import LoginRespository from "../../Data/Repositories/LoginRepository";
+import LoginRespository from "../../../Data/Repositories/common/LoginRepository";
 
 async function LoginUseCase(loginState) {
   const result = await LoginRespository(loginState);

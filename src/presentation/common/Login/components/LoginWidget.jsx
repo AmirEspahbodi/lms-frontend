@@ -3,7 +3,7 @@ import { loginFields } from "../../../../Core/constants/formFields";
 import FormAction from "../../../../Core/components/FormAction";
 import FormExtra from "./FormExtra";
 import Input from "../../../../Core/components/Input";
-import LoginUseCase from "../../../../Domain/UseCases/LoginUseCase";
+import LoginUseCase from "../../../../Domain/UseCases/common/LoginUseCase";
 import Failure from "../../../../Core/Failure/Failure";
 import { useNavigate } from "react-router-dom";
 import APP_ROUTES from "../../../../Core/constants/Routs";
@@ -62,7 +62,7 @@ export default function Login() {
   };
 
   return (
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+    <form className="mt-8 space-y-6 auth-form" onSubmit={handleSubmit}>
       <div className="-space-y-px">
         {fields.map((field) => (
           <Input

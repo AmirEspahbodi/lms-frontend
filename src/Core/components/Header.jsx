@@ -1,32 +1,36 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import APP_ROUTES from "../constants/Routs";
+import useUser from "../customHooks";
+import "../styles/header.css";
 
-export default function Header({
-  heading,
-  paragraph,
-  linkName,
-  linkUrl = "#",
-}) {
-  return (
-    <div className="mb-10">
-      <div className="flex justify-center">
-        <img
-          alt=""
-          className="h-14 w-14"
-          src="https://ik.imagekit.io/pibjyepn7p9/Lilac_Navy_Simple_Line_Business_Logo_CGktk8RHK.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649962071315"
-        />
-      </div>
-      <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        {heading}
-      </h2>
-      <p className="mt-2 text-center text-sm text-gray-600 mt-5">
-        {paragraph}{" "}
-        <Link
-          to={linkUrl}
-          className="font-medium text-purple-600 hover:text-purple-500"
-        >
-          {linkName}
-        </Link>
-      </p>
-    </div>
-  );
+export default function Header() {
+  const { user, authenticated } = useUser();
+  const navigate = useNavigate();
+  const toggleDropdown = () => {};
+  if (authenticated)
+    return (
+      <header>
+        <div className="flex-container">
+          <ul className="left-list">
+            <li
+              onClick={() => {
+                navigate(APP_ROUTES.SPLASH);
+              }}
+            >
+              home
+            </li>
+            <li>news</li>
+          </ul>
+          <div className="dropdown-toggle" onClick={toggleDropdown}>
+            <div>{user.username}</div>
+            <ul className="dropdown-menu">
+              <li>Profile</li>
+              <li>logout</li>
+              <li>logout all</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+    );
 }

@@ -1,0 +1,66 @@
+header {
+  width: 90%;
+  margin: 20px auto;
+  margin-bottom: 80px;
+  white-space: nowrap;
+  height: 0px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-list {
+  display: flex;
+  line-height: 45px;
+  gap: 20px;
+  align-content: flex-start;
+  align-self: flex-start;
+}
+
+.dropdown-toggle {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  height: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-toggle > div {
+  margin-bottom: 15px;
+}
+
+.dropdown-toggle:hover > .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  z-index: 1;
+  background-color: inherit;
+  list-style: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.dropdown-menu li {
+  display: flex;
+  justify-content: center;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.auth-form {
+  direction: ltr;
+}
