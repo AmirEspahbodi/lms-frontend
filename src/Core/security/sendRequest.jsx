@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const getAuthorizationHeader = async () => {
-  const tokenData = sessionStorage.getItem("token");
+const getAuthorizationHeader = () => {
+  const tokenStringData = sessionStorage.getItem("token");
+  const tokenData = JSON.parse(tokenStringData);
   if (tokenData) return "Token " + tokenData.token;
   else return null;
 };
 
 async function setAuthorizationHeader() {
-  const authorizationHeader = await getAuthorizationHeader();
+  const authorizationHeader = getAuthorizationHeader();
   if (authorizationHeader)
     axios.defaults.headers.common["Authorization"] = authorizationHeader;
 }

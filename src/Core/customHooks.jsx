@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import APP_ROUTES from "./constants/Routs";
-import getAuthenticatedUser from "./getAuthenticatedUser";
+import { getAuthenticatedUser } from "./security/getAuthenticatedUser";
 
 export function useUser() {
   const [user, setUser] = useState(null);

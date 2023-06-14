@@ -1,5 +1,11 @@
 import axios from "axios";
-import SERVER_APIS from "./constants/ServerAPIs";
+import SERVER_APIS from "../constants/ServerAPIs";
+
+function getUser() {
+  const userDataString = sessionStorage.getItem("user");
+  const userData = JSON.parse(userDataString);
+  return userData;
+}
 
 async function getAuthenticatedUser() {
   const tokenDataString = sessionStorage.getItem("token");
@@ -17,4 +23,4 @@ async function getAuthenticatedUser() {
   }
 }
 
-export default getAuthenticatedUser;
+export { getUser, getAuthenticatedUser };

@@ -1,7 +1,8 @@
 class StudentHomeModel {
-  constructor({ courses, sessions }) {
+  constructor({ courses, sessions, now }) {
     this.courses = courses;
     this.sessions = sessions;
+    this.now = now;
   }
 }
 

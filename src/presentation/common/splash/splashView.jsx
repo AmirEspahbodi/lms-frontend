@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import APP_ROUTES from "../../../Core/constants/Routs";
-import getAuthenticatedUser from "../../../Core/getAuthenticatedUser";
+import { getAuthenticatedUser } from "../../../Core/security/getAuthenticatedUser";
 import { useEffect } from "react";
 
 APP_ROUTES;

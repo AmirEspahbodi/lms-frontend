@@ -1,0 +1,93 @@
+.sessions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-basis: content;
+  gap: 35px;
+}
+
+.home-box-item-title {
+  padding: 10px;
+  margin: 10px;
+}
+
+.course,
+.session {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.2);
+  min-width: max-content;
+  max-width: max-content;
+}
+
+.course-title,
+.session-name {
+  align-self: center;
+}
+
+.course-data,
+.session-time {
+  font-size: small;
+}
+
+.course-title,
+.teacher-name {
+  padding-bottom: 10px;
+}
+
+.daily-calendar-top {
+  display: flex;
+  gap: 5px;
+}
+
+.daily-calendar-top > .calendar-top-item {
+  background-color: rgba(150, 150, 150, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.calendar-wrapper-item-body {
+  margin: auto 20px;
+  display: flex;
+  max-width: 100%;
+}
+
+.calendar-wrapper-item-body-top {
+  padding-bottom: 10px;
+}
+
+.calendar-wrapper-item-body > div:nth-child(1) {
+  flex-grow: 1;
+}
+
+.calendar-wrapper-item-body > div:nth-child(2) {
+  flex-grow: 2;
+}
+
+.calendar-wrapper-item-body > div:nth-child(3) {
+  flex-grow: 2;
+}
+
+.calendar-wrapper-item-body > div:nth-child(4) {
+  flex-grow: 2;
+}
+
+.calendar-wrapper-item-body-content {
+  background-color: rgba(100, 100, 100, 0.3);
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+}
+
+.calendar-wrapper-item-body-content > div:nth-child(1) {
+  margin-right: 20px;
+}

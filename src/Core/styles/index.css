@@ -68,6 +68,10 @@ button:focus-visible {
   border-color: #ff000069;
 }
 
+.make-a {
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -79,8 +83,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.make-a {
-  cursor: pointer;
 }

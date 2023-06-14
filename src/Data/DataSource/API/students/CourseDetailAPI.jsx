@@ -3,12 +3,14 @@ import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFa
 import UnknownFailure from "../../../../Core/Failure/UnknownFailure";
 import SERVER_APIS from "../../../../Core/constants/ServerAPIs";
 import { getRequest } from "../../../../Core/security/sendRequest";
-import StudentHomeModel from "../../../Models/StudentHome";
+import StudentCourseDetailModel from "../../../Models/students/courseDetailModel";
 
-async function studentHomeAPI() {
+export default async function studentCourseDetailAPI(courseId) {
   try {
-    const response = await getRequest({ url: SERVER_APIS.STUDENT_HOME });
-    return new StudentHomeModel(response.data);
+    const response = await getRequest({
+      url: SERVER_APIS.STUDENT_COURSE_DETAIL(courseId),
+    });
+    return new StudentCourseDetailModel(response.data);
   } catch (error) {
     if (error.response) {
       return new CommonFailure(error.response.data);
@@ -20,5 +22,3 @@ async function studentHomeAPI() {
     }
   }
 }
-
-export default studentHomeAPI;

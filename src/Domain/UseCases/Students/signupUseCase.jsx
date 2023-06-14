@@ -1,8 +1,7 @@
 import StudentsignUPRepositoory from "../../../Data/Repositories/Students/SignupRepository";
 
 async function StudentSignupUseCase(signupState) {
-  const signupResult = await StudentsignUPRepositoory(signupState);
-  return signupResult;
+  return await StudentsignUPRepositoory(signupState);
 }
 
 export default StudentSignupUseCase;
