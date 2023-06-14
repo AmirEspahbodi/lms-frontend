@@ -19,6 +19,8 @@ const SERVER_APIS = {
   TEACHER_HOME: "http://127.0.0.1:8000/apis/teachers/home/",
   STUDENT_COURSE_DETAIL: (courseID) =>
     `http://127.0.0.1:8000/apis/students/course/${courseID}/`,
+  TEACHER_COURSE_DETAIL: (courseID) =>
+    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/`,
 };
 
 export default SERVER_APIS;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import courseDetailUseCase from "../../../Domain/UseCases/Students/courseDetailUseCase";
+import courseDetailUseCase from "../../../../Domain/UseCases/Students/courseDetailUseCase";
 import Failure from "../../../../Core/Failure/Failure";
 import { useNavigate, useParams } from "react-router-dom";
 import { showWeekDay } from "../../../../Core/utils/utilsFuncs";

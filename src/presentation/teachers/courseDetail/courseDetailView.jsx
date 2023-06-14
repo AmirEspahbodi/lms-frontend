@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import courseDetailUseCase from "../../../Domain/UseCases/Students/courseDetailUseCase";
 import Failure from "../../../Core/Failure/Failure";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs";
 import "../../../Core/styles/course.css";
 import checkAuth from "../../../Core/security/checkAuth";
 import checkPermission from "../../../Core/security/checkPermission";
+import teacherCourseDetailUseCase from "../../../Domain/UseCases/teachers/courseDetailUseCase";
 
 function TeacherCourseDetailView() {
   const [sessions, setSessions] = useState([]);
@@ -13,7 +13,7 @@ function TeacherCourseDetailView() {
   const navigate = useNavigate();
   let { courseId } = useParams();
   const fetchData = async () => {
-    const result = await courseDetailUseCase(courseId);
+    const result = await teacherCourseDetailUseCase(courseId);
     if (result instanceof Failure) {
     } else {
       setSessions(result.sessions);

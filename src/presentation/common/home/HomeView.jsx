@@ -72,7 +72,10 @@ function STHomeView() {
             <h2 className="home-box-item-title">current courses</h2>
             <div className="home-box-current-courses courses">
               {courses.map((course) => (
-                <div onClick={(e) => goToCourse(e, course?.id)} key={course.id}>
+                <div
+                  onClick={(e) => goToCourse(e, course?.id, navigate)}
+                  key={course.id}
+                >
                   <div className="course">
                     <div className="course-title">
                       {course?.course_title.title} group (
