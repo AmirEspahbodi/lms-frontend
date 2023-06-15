@@ -2,6 +2,8 @@ const SERVER_APIS = {
   STUDENT_SIGNUP: "http://127.0.0.1:8000/apis/students/register/",
   LOGIN: "http://127.0.0.1:8000/apis/accounts/login/",
   TOKEN_VERIFY: "http://127.0.0.1:8000/apis/accounts/token/verify/",
+  LOGOUT: "http://127.0.0.1:8000/apis/accounts/logout/",
+  LOGOUT_ALL: "http://127.0.0.1:8000/apis/accounts/logout_all/",
 
   PASSWORD_RESET_REQUEST_CODE:
     "http://127.0.0.1:8000/apis/accounts/password/reset/get_code/",

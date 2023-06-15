@@ -8,9 +8,10 @@ import PasswordResetView from "./presentation/common/Password/Reset/PasswordRese
 import NoHomeView from "./presentation/common/NoHome/NoHomeView";
 import SplashView from "./presentation/common/splash/splashView";
 import LoginView from "./presentation/common/Login/LoginView";
-import STHomeView from "./presentation/common/home/HomeView";
 import StudentCourseDetailView from "./presentation/students/courseDetail/courseDetailView";
 import TeacherCourseDetailView from "./presentation/teachers/courseDetail/courseDetailView";
+import StudentHomeView from "./presentation/students/home/HomeView";
+import TeacherHomeView from "./presentation/teachers/home/HomeView";
 
 function App() {
   return (
@@ -30,8 +31,8 @@ function App() {
           path={APP_ROUTES.EMAIL_VERIFICATION}
           element={<EmailVerificationView />}
         />
-        <Route path={APP_ROUTES.STUDENT_HOME} element={<STHomeView />} />
-        <Route path={APP_ROUTES.TEACHER_HOME} element={<STHomeView />} />
+        <Route path={APP_ROUTES.STUDENT_HOME} element={<StudentHomeView />} />
+        <Route path={APP_ROUTES.TEACHER_HOME} element={<TeacherHomeView />} />
         <Route
           path={APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE}
           element={<NoHomeView />}

@@ -6,6 +6,7 @@ import "../../../Core/styles/course.css";
 import checkAuth from "../../../Core/security/checkAuth";
 import checkPermission from "../../../Core/security/checkPermission";
 import teacherCourseDetailUseCase from "../../../Domain/UseCases/teachers/courseDetailUseCase";
+import Header from "../../../Core/components/Header";
 
 function TeacherCourseDetailView() {
   const [sessions, setSessions] = useState([]);
@@ -26,39 +27,47 @@ function TeacherCourseDetailView() {
   }, []);
   if (has_peromission)
     return (
-      <div>
-        <div className="sessions">
-          {sessions.map((session) => {
-            return (
-              <div
-                onClick={(e) => goToSession(e, session?.id)}
-                key={session.id}
-              >
-                <div className="session">
-                  <div className="session-name">
-                    <p>session {session.session_number}</p>
-                  </div>
-                  <div className="session-time">
-                    <span>{session.date}</span>
-                    {", "}
-                    <span>{session.time_slot.room_number.room_title}</span>{" "}
-                    {", "}
-                    <span>{showWeekDay(session.time_slot.day)}</span> {", "}
-                    <span>{session.time_slot.start}</span> {", "}
-                    <span>{session.time_slot.end}</span>
+      <>
+        <Header />
+        <div>
+          <div className="sessions">
+            {sessions.map((session) => {
+              return (
+                <div
+                  onClick={(e) => goToSession(e, session?.id)}
+                  key={session.id}
+                >
+                  <div className="session">
+                    <div className="session-name">
+                      <p>session {session.session_number}</p>
+                    </div>
+                    <div className="session-time">
+                      <span>{session.date}</span>
+                      {", "}
+                      <span>
+                        {session.time_slot.room_number.room_title}
+                      </span>{" "}
+                      {", "}
+                      <span>{showWeekDay(session.time_slot.day)}</span> {", "}
+                      <span>{session.time_slot.start}</span> {", "}
+                      <span>{session.time_slot.end}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </>
     );
   else
     return (
-      <div>
-        <p>permission denied!</p>
-      </div>
+      <>
+        <Header />
+        <div>
+          <p>permission denied!</p>
+        </div>
+      </>
     );
 }
 

@@ -5,9 +5,9 @@ import SERVER_APIS from "../../../../Core/constants/ServerAPIs";
 import { getRequest } from "../../../../Core/security/sendRequest";
 import StudentHomeModel from "../../../Models/students/StudentHome";
 
-export default async function STHomeAPI() {
+export default async function TeacherHomeAPI() {
   try {
-    const response = await getRequest({ url: SERVER_APIS.STUDENT_HOME });
+    const response = await getRequest({ url: SERVER_APIS.TEACHER_HOME });
     return new StudentHomeModel(response.data);
   } catch (error) {
     if (error.response) {

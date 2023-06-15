@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import courseDetailUseCase from "../../../../Domain/UseCases/Students/courseDetailUseCase";
 import Failure from "../../../../Core/Failure/Failure";
 import { useNavigate, useParams } from "react-router-dom";
-import { showWeekDay } from "../../../../Core/utils/utilsFuncs";
+import { goToSession, showWeekDay } from "../../../../Core/utils/utilsFuncs";
 import checkAuth from "../../../../Core/security/checkAuth";
 import checkPermission from "../../../../Core/security/checkPermission";
 
 export default function StudentCourseDetailWidget() {
   const [sessions, setSessions] = useState([]);
   const [has_peromission, setPromission] = useState(true);
-  const navigate = useNavigate();
   let { courseId } = useParams();
+  const navigate = useNavigate();
   const fetchData = async () => {
     const result = await courseDetailUseCase(courseId);
     if (result instanceof Failure) {
@@ -23,9 +23,6 @@ export default function StudentCourseDetailWidget() {
     checkPermission(setPromission);
     fetchData();
   }, []);
-  const goToSession = (e, id) => {
-    console.log(`here on goToSession ${id}`);
-  };
 
   if (has_peromission)
     return (
@@ -34,7 +31,7 @@ export default function StudentCourseDetailWidget() {
           {sessions.map((session) => {
             return (
               <div
-                onClick={(e) => goToSession(e, session?.id)}
+                onClick={(e) => goToSession(e, session?.id, navigate)}
                 key={session.id}
               >
                 <div className="session">

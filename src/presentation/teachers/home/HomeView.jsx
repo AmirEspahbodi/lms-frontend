@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
-import StudentHomeUseCase from "../../../Domain/UseCases/common/homeUseCase";
+import TeacherHomeUseCase from "../../../Domain/UseCases/teachers/homeUseCase";
 import Failure from "../../../Core/Failure/Failure";
 import "../../../Core/styles/home.css";
 import "../../../Core/styles/course.css";
@@ -13,7 +13,7 @@ import {
 import checkAuth from "../../../Core/security/checkAuth";
 import checkPermission from "../../../Core/security/checkPermission";
 
-function STHomeView() {
+export default function TeacherHomeView() {
   const [courses, setCourses] = useState([]);
   const [exams, setExams] = useState([]);
   const [assignments, setEssignments] = useState([]);
@@ -38,7 +38,7 @@ function STHomeView() {
 
   const navigate = useNavigate();
   const fetchData = async () => {
-    const result = await StudentHomeUseCase();
+    const result = await TeacherHomeUseCase();
     console.log(result);
     if (result instanceof Failure) {
     } else {
@@ -371,5 +371,3 @@ function STHomeView() {
     );
   else return <div></div>;
 }
-
-export default STHomeView;

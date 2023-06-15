@@ -7,6 +7,9 @@ import SERVER_APIS from "../../../Core/constants/ServerAPIs";
 
 async function LoginAPI(loginData) {
   try {
+    console.log("LoginAPI => ");
+    console.log(SERVER_APIS.LOGIN);
+    console.log(loginData);
     const response = await axios.post(SERVER_APIS.LOGIN, loginData);
     return new LoginResponseModel(response.data);
   } catch (error) {

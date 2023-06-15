@@ -27,6 +27,8 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("handleSubmit => ");
+    console.log(loginState);
     const loginResult = LoginUseCase(loginState);
     loginResult.then((result) => {
       if (result instanceof Failure) {
