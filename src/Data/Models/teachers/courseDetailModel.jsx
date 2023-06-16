@@ -4,4 +4,10 @@ class TeacherCourseDetailModel {
   }
 }
 
-export default TeacherCourseDetailModel;
+class TeacherSetStudentResponseModel {
+  constructor(data) {
+    this.access = data.access;
+  }
+}
+
+export { TeacherCourseDetailModel, TeacherSetStudentResponseModel };

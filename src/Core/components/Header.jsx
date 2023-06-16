@@ -30,7 +30,7 @@ export default function Header() {
               <li onClick={async () => {}}>Profile</li>
               <li
                 onClick={async () => {
-                  LogOutAPI();
+                  await LogOutAPI();
                   navigate(APP_ROUTES.SPLASH);
                 }}
               >
@@ -38,7 +38,7 @@ export default function Header() {
               </li>
               <li
                 onClick={async () => {
-                  LogOutAllAPI();
+                  await LogOutAllAPI();
                   navigate(APP_ROUTES.SPLASH);
                 }}
               >

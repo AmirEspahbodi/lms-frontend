@@ -23,6 +23,10 @@ const SERVER_APIS = {
     `http://127.0.0.1:8000/apis/students/course/${courseID}/`,
   TEACHER_COURSE_DETAIL: (courseID) =>
     `http://127.0.0.1:8000/apis/teachers/course/${courseID}/`,
+  TEACHER_COURSE_GET_STUDENTS: (courseID) =>
+    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/setting/students/`,
+  TEACHER_SET_STUDENT_ACCESS: (courseID) =>
+    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/setting/students/`,
 };
 
 export default SERVER_APIS;

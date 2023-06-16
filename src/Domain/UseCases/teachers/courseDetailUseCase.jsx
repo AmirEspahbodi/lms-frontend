@@ -1,5 +1,23 @@
-import teacherCourseDetailRepository from "../../../Data/Repositories/Students/courseDetailRespository";
+import {
+  teacherCourseDetailRepository,
+  teacherCourseDetailGerStudentsSettingRepository,
+  teacherCourseDetailSetStudentAccessRepository,
+} from "../../../Data/Repositories/teachers/courseDetailRespository";
 
-export default async function teacherCourseDetailUseCase(courseId) {
+async function teacherCourseDetailUseCase(courseId) {
   return await teacherCourseDetailRepository(courseId);
 }
+
+async function teacherCourseDetailGerStudentsSettingUseCase(courseId) {
+  return await teacherCourseDetailGerStudentsSettingRepository(courseId);
+}
+
+async function teacherCourseDetailSetStudentAccessUseCase(courseId, data) {
+  return await teacherCourseDetailSetStudentAccessRepository(courseId, data);
+}
+
+export {
+  teacherCourseDetailUseCase,
+  teacherCourseDetailGerStudentsSettingUseCase,
+  teacherCourseDetailSetStudentAccessUseCase,
+};

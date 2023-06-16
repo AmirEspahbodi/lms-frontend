@@ -5,59 +5,72 @@ import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs";
 import "../../../Core/styles/course.css";
 import checkAuth from "../../../Core/security/checkAuth";
 import checkPermission from "../../../Core/security/checkPermission";
-import teacherCourseDetailUseCase from "../../../Domain/UseCases/teachers/courseDetailUseCase";
+import { teacherCourseDetailUseCase } from "../../../Domain/UseCases/teachers/courseDetailUseCase";
 import Header from "../../../Core/components/Header";
+import StudentModal from "./components/studentModal";
+import ExamModal from "./components/examModal";
+import AssignmentModal from "./components/assignmentModal";
+import Sessions from "./components/sessions";
 
 function TeacherCourseDetailView() {
-  const [sessions, setSessions] = useState([]);
+  const modalTop = 2;
+  const modalStartTop = -90;
+
+  const [studentsModalTop, setStudentsModalTop] = useState(modalStartTop);
+  const [createExamModalTop, setCreateExamModalTop] = useState(modalStartTop);
+  const [createAssignmentModalTop, setCreateAssignmentModalTop] =
+    useState(modalStartTop);
   const [has_peromission, setPromission] = useState(true);
   const navigate = useNavigate();
-  let { courseId } = useParams();
-  const fetchData = async () => {
-    const result = await teacherCourseDetailUseCase(courseId);
-    if (result instanceof Failure) {
-    } else {
-      setSessions(result.sessions);
-    }
-  };
+
   useEffect(() => {
     checkAuth(navigate);
     checkPermission(setPromission);
-    fetchData();
   }, []);
+
+  const setStudentsModal = () =>
+    studentsModalTop != modalTop ? setStudentsModalTop(modalTop) : null;
+  const setCreateExamModal = () =>
+    createExamModalTop != modalTop ? setCreateExamModalTop(modalTop) : null;
+  const setCreateAssignmentModal = () =>
+    createAssignmentModalTop != modalTop
+      ? setCreateAssignmentModalTop(modalTop)
+      : null;
+  const closeStudentsModal = () => setStudentsModalTop(modalStartTop);
+  const closeCreateExamModal = () => setCreateExamModalTop(modalStartTop);
+  const closeCreateAssignmentModal = () =>
+    setCreateAssignmentModalTop(modalStartTop);
   if (has_peromission)
     return (
       <>
         <Header />
-        <div>
-          <div className="sessions">
-            {sessions.map((session) => {
-              return (
-                <div
-                  onClick={(e) => goToSession(e, session?.id)}
-                  key={session.id}
-                >
-                  <div className="session">
-                    <div className="session-name">
-                      <p>session {session.session_number}</p>
-                    </div>
-                    <div className="session-time">
-                      <span>{session.date}</span>
-                      {", "}
-                      <span>
-                        {session.time_slot.room_number.room_title}
-                      </span>{" "}
-                      {", "}
-                      <span>{showWeekDay(session.time_slot.day)}</span> {", "}
-                      <span>{session.time_slot.start}</span> {", "}
-                      <span>{session.time_slot.end}</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+        <div className="course-detail-top">
+          <div className="course-detail-top-item" onClick={setStudentsModal}>
+            <span>students</span>
+            <StudentModal
+              closeStudentsModal={closeStudentsModal}
+              studentsModalTop={studentsModalTop}
+            />
+          </div>
+          <div onClick={setCreateExamModal} className="course-detail-top-item">
+            <span>create exam</span>
+            <ExamModal
+              closeCreateExamModal={closeCreateExamModal}
+              createExamModalTop={createExamModalTop}
+            />
+          </div>
+          <div
+            onClick={setCreateAssignmentModal}
+            className="course-detail-top-item"
+          >
+            <span>create assignment</span>
+            <AssignmentModal
+              closeCreateAssignmentModal={closeCreateAssignmentModal}
+              createAssignmentModalTop={createAssignmentModalTop}
+            />
           </div>
         </div>
+        <Sessions />
       </>
     );
   else
