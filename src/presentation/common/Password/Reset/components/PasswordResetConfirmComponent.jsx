@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Failure from "../../../../../Core/Failure/Failure.jsx";
-import ServerConnectionFailure from "../../../../../Core/Failure/ServerConnectionFailure.jsx";
-import UnknownFailure from "../../../../../Core/Failure/UnknownFailure.jsx";
+import Failure from "../../../../../Core/Failure/Failure.js";
+import ServerConnectionFailure from "../../../../../Core/Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../../../../../Core/Failure/UnknownFailure.js";
 import FormAction from "../../../../../Core/components/FormAction.jsx";
 import Input from "../../../../../Core/components/Input.jsx";
 import {PasswordResetConfirmUseCase} from "../../../../../Domain/UseCases/common/passwordResetUseCase.js";
-import {PasswordResetConfirmFailure} from "../../../../../Core/Failure/PasswordResetFailure.jsx";
-import {PasswordResetField} from "../../../../../Core/constants/FormFields.jsx";
+import {PasswordResetConfirmFailure} from "../../../../../Core/Failure/PasswordResetFailure.js";
+import {PasswordResetField} from "../../../../../Core/constants/FormFields.js";
 import {useNavigate} from "react-router-dom";
 
 const fields = PasswordResetField;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import SERVER_APIS from "../constants/ServerAPIs";
+import SERVER_APIS from "../constants/ServerAPIs.js";
 
 function getUser() {
   const userDataString = sessionStorage.getItem("user");

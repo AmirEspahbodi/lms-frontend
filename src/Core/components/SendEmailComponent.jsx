@@ -1,10 +1,10 @@
 import { useState } from "react";
 import FormAction from "./FormAction";
 import Input from "./Input";
-import { EmailRequestCodeField } from "../constants/formFields";
-import Failure from "../Failure/Failure";
-import ServerConnectionFailure from "../Failure/ServerConnectionFailure";
-import UnknownFailure from "../Failure/UnknownFailure";
+import { EmailRequestCodeField } from "../constants/FormFields.js";
+import Failure from "../Failure/Failure.js";
+import ServerConnectionFailure from "../Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../Failure/UnknownFailure.js";
 
 const fields = EmailRequestCodeField;
 let fieldsErrorState = {};

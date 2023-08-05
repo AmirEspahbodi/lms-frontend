@@ -1,4 +1,4 @@
-import Failure from "./Failure";
+import Failure from "./Failure.js";
 
 class ServerConnectionFailure extends Failure {
   constructor() {

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { signupL1Fields } from "../../../../Core/constants/FormFields.jsx";
+import { signupL1Fields } from "../../../../Core/constants/FormFields.js";
 import FormAction from "../../../../Core/components/FormAction.jsx";
 import Input from "../../../../Core/components/Input.jsx";
-import {SignupL1UseCase} from "../../../../Domain/UseCases/common/signupUseCase.jsx";
-import Failure from "../../../../Core/Failure/Failure.jsx";
+import {SignupL1UseCase} from "../../../../Domain/UseCases/common/signupUseCase.js";
+import Failure from "../../../../Core/Failure/Failure.js";
 
 const fields = signupL1Fields;
 let fieldsState = {};

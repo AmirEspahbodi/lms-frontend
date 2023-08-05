@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Failure from "../../../Core/Failure/Failure";
+import Failure from "../../../Core/Failure/Failure.js";
 import { useNavigate, useParams } from "react-router-dom";
-import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs";
+import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs.js";
 import "../../../Core/styles/course.css";
-import checkAuth from "../../../Core/security/checkAuth";
-import checkPermission from "../../../Core/security/checkPermission";
+import checkAuth from "../../../Core/security/checkAuth.js";
+import checkPermission from "../../../Core/security/checkPermission.js";
 import { teacherCourseDetailUseCase } from "../../../Domain/UseCases/teachers/courseDetailUseCase";
 import Header from "../../../Core/components/Header";
 import StudentModal from "./components/studentModal";

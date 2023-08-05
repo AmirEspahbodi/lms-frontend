@@ -1,4 +1,4 @@
-import Failure from "./Failure";
+import Failure from "./Failure.js";
 
 class PasswordResetGetCodeFailure extends Failure {
     constructor({ detail, non_field_errors=null, time=null }) {

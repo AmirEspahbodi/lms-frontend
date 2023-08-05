@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { loginFields } from "../../../../Core/constants/formFields";
+import { loginFields } from "../../../../Core/constants/FormFields.js";
 import FormAction from "../../../../Core/components/FormAction";
 import FormExtra from "./FormExtra";
 import Input from "../../../../Core/components/Input";
-import LoginUseCase from "../../../../Domain/UseCases/common/LoginUseCase";
-import Failure from "../../../../Core/Failure/Failure";
+import LoginUseCase from "../../../../Domain/UseCases/common/LoginUseCase.js";
+import Failure from "../../../../Core/Failure/Failure.js";
 import { useNavigate } from "react-router-dom";
-import APP_ROUTES from "../../../../Core/constants/Routs";
+import APP_ROUTES from "../../../../Core/constants/Routs.js";
 
 const fields = loginFields;
 let fieldsState = {};

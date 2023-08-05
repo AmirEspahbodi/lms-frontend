@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import AuthHeader from "../../../Core/components/AuthHeader";
 import LoginWidget from "./components/LoginWidget";
-import APP_ROUTES from "../../../Core/constants/Routs";
-import useUser from "../../../Core/customHooks";
-import {getAuthenticatedUser} from "../../../Core/security/getAuthenticatedUser.jsx";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
+import useUser from "../../../Core/customHooks.js";
+import {getAuthenticatedUser} from "../../../Core/security/getAuthenticatedUser.js";
 
 function LoginPage() {
   const navigate = useNavigate();

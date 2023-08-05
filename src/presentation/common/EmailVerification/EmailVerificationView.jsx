@@ -1,9 +1,9 @@
 import { useState } from "react";
 import AuthHeader from "../../../Core/components/AuthHeader";
-import APP_ROUTES from "../../../Core/constants/Routs";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
 import EmailVerificationVerify from "./components/EmailVerificationVerifyWidget";
 import EmailVerificationGetCode from "./components/EmailVerificationGetCodeWidget";
-import { EmailRequestCodeField } from "../../../Core/constants/formFields";
+import { EmailRequestCodeField } from "../../../Core/constants/FormFields.js";
 
 const fields = EmailRequestCodeField;
 let fieldsState = {};

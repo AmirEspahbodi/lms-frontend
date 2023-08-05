@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
 import TeacherHomeUseCase from "../../../Domain/UseCases/teachers/homeUseCase";
-import Failure from "../../../Core/Failure/Failure";
+import Failure from "../../../Core/Failure/Failure.js";
 import "../../../Core/styles/home.css";
 import "../../../Core/styles/course.css";
 import {
   goToCourse,
   goToSession,
   showSemester,
-} from "../../../Core/utils/utilsFuncs";
-import checkAuth from "../../../Core/security/checkAuth";
-import checkPermission from "../../../Core/security/checkPermission";
+} from "../../../Core/utils/utilsFuncs.js";
+import checkAuth from "../../../Core/security/checkAuth.js";
+import checkPermission from "../../../Core/security/checkPermission.js";
 
 export default function TeacherHomeView() {
   const [courses, setCourses] = useState([]);

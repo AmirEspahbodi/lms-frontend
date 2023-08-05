@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import APP_ROUTES from "../../../../Core/constants/Routs";
+import APP_ROUTES from "../../../../Core/constants/Routs.js";
 
 export default function FormExtra({ emailVerifed }) {
   const navigation = useNavigate();

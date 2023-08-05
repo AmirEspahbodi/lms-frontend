@@ -1,14 +1,14 @@
 import {
   EmailVerificationGetCodeFailure,
   EmailVerificationSendCodeFailure,
-} from "../../../../Core/Failure/EmailVerificationFailure";
-import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure";
-import UnknownFailure from "../../../../Core/Failure/UnknownFailure";
+} from "../../../../Core/Failure/EmailVerificationFailure.js";
+import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../../../../Core/Failure/UnknownFailure.js";
 import {
   EmailVerificationGetCodeResponseModel,
   EmailVerificationSendCodeResponseModel,
-} from "../../../Models/EmailVerificationResponseModel";
-import SERVER_APIS from "../../../../Core/constants/ServerAPIs";
+} from "../../../Models/EmailVerificationResponseModel.js";
+import SERVER_APIS from "../../../../Core/constants/ServerAPIs.js";
 import axios from "axios";
 
 async function EmailVerificationGetCodeAPI(emailData) {

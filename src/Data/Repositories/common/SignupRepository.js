@@ -1,4 +1,4 @@
-import {StudentL2SignupAPI, StudentL1SignupAPI} from "../../DataSource/API/common/signupAPI.jsx";
+import {StudentL2SignupAPI, StudentL1SignupAPI} from "../../DataSource/API/common/signupAPI.js";
 
 async function SignupL1Repository(signupState) {
   return await StudentL1SignupAPI(signupState);

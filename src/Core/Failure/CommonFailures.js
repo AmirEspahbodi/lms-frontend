@@ -1,4 +1,4 @@
-import Failure from "./Failure";
+import Failure from "./Failure.js";
 
 class CommonFailure extends Failure {
   constructor({ detail }) {

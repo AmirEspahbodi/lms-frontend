@@ -1,4 +1,4 @@
-import Failure from "./Failure";
+import Failure from "./Failure.js";
 class SignUpL1Failure extends Failure {
   constructor({
     first_name = null,

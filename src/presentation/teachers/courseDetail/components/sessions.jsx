@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { teacherCourseDetailUseCase } from "../../../../Domain/UseCases/teachers/courseDetailUseCase";
 import { useParams } from "react-router-dom";
-import Failure from "../../../../Core/Failure/Failure";
-import { showWeekDay } from "../../../../Core/utils/utilsFuncs";
+import Failure from "../../../../Core/Failure/Failure.js";
+import { showWeekDay } from "../../../../Core/utils/utilsFuncs.js";
 
 export default function Sessions() {
   const [sessions, setSessions] = useState([]);

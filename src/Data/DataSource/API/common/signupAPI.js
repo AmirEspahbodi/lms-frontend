@@ -1,9 +1,9 @@
 import axios from "axios";
-import {SignUpL2Success, SignUpL1Success} from "../../../../Domain/Entities/signupEntity.jsx";
-import {SignUpL2Failure, SignUpL1Failure} from "../../../../Core/Failure/signupFailure.jsx";
-import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.jsx";
-import UnknownFailure from "../../../../Core/Failure/UnknownFailure.jsx";
-import SERVER_APIS from "../../../../Core/constants/ServerAPIs.jsx";
+import {SignUpL2Success, SignUpL1Success} from "../../../../Domain/Entities/signupEntity.js";
+import {SignUpL2Failure, SignUpL1Failure} from "../../../../Core/Failure/signupFailure.js";
+import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../../../../Core/Failure/UnknownFailure.js";
+import SERVER_APIS from "../../../../Core/constants/ServerAPIs.js";
 
 async function StudentL1SignupAPI(signupData) {
   try {

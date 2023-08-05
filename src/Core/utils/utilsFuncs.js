@@ -1,4 +1,4 @@
-import APP_ROUTES from "../constants/Routs";
+import APP_ROUTES from "../constants/Routs.js";
 
 function showWeekDay(day) {
   if (day == 1) return "Monday";

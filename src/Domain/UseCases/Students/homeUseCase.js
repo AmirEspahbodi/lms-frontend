@@ -1,6 +1,6 @@
-import Failure from "../../../Core/Failure/Failure";
-import { dateSub } from "../../../Core/utils/utilsFuncs";
-import StudentHomeRepository from "../../../Data/Repositories/Students/homeRepository";
+import Failure from "../../../Core/Failure/Failure.js";
+import { dateSub } from "../../../Core/utils/utilsFuncs.js";
+import StudentHomeRepository from "../../../Data/Repositories/Students/homeRepository.js";
 
 export default async function StudentHomeUseCase() {
   const result = await StudentHomeRepository();

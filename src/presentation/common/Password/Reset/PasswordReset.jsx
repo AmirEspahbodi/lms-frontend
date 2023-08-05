@@ -1,5 +1,5 @@
 import AuthHeader from "../../../../Core/components/AuthHeader.jsx";
-import APP_ROUTES from "../../../../Core/constants/Routs.jsx";
+import APP_ROUTES from "../../../../Core/constants/Routs.js";
 import PasswordResetConfirmComponent from "./components/PasswordResetConfirmComponent.jsx";
 import PasswordResetVerifyCodeComponent from "./components/PasswordResetVerifyCodeComponent.jsx";
 import PasswordResetSendEmailComponent from "./components/PasswordResetSendEmailComponent.jsx";

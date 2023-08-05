@@ -1,7 +1,7 @@
 import VerifyCodeComponent from "../../../../Core/components/VerifyCodeComponnent.jsx";
-import {EmailVerificationSendCodeUseCase} from "../../../../Domain/UseCases/common/EmailVerificationUseCase.jsx";
-import {EmailVerificationSendCodeFailure} from "../../../../Core/Failure/EmailVerificationFailure.jsx";
-import APP_ROUTES from "../../../../Core/constants/Routs.jsx";
+import {EmailVerificationSendCodeUseCase} from "../../../../Domain/UseCases/common/EmailVerificationUseCase.js";
+import {EmailVerificationSendCodeFailure} from "../../../../Core/Failure/EmailVerificationFailure.js";
+import APP_ROUTES from "../../../../Core/constants/Routs.js";
 import {useNavigate} from "react-router-dom";
 
 function EmailVerificationSendCode() {

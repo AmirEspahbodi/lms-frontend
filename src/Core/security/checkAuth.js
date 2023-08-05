@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import APP_ROUTES from "../constants/Routs";
-import { getAuthenticatedUser } from "./getAuthenticatedUser";
+import APP_ROUTES from "../constants/Routs.js";
+import { getAuthenticatedUser } from "./getAuthenticatedUser.js";
 
 const checkAuth = async (navigate) => {
   const { authenticated, user } = await getAuthenticatedUser();

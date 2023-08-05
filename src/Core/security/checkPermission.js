@@ -1,4 +1,4 @@
-import { getUser } from "./getAuthenticatedUser";
+import { getUser } from "./getAuthenticatedUser.js";
 
 async function checkPermission(setPromission) {
   const user = getUser();

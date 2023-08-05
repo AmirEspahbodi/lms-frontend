@@ -4,7 +4,7 @@ import {
   teacherCourseDetailSetStudentAccessUseCase,
 } from "../../../../Domain/UseCases/teachers/courseDetailUseCase";
 import { useParams } from "react-router-dom";
-import Failure from "../../../../Core/Failure/Failure";
+import Failure from "../../../../Core/Failure/Failure.js";
 
 export default function StudentModal({ closeStudentsModal, studentsModalTop }) {
   const [studentEnrools, setStudentEnrools] = useState([]);

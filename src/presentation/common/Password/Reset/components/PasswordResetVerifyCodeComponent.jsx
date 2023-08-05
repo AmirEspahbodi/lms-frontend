@@ -1,6 +1,6 @@
 import VerifyCodeComponent from "../../../../../Core/components/VerifyCodeComponnent.jsx";
 import {PasswordResetVerifyCodeUseCase} from "../../../../../Domain/UseCases/common/passwordResetUseCase.js";
-import {PasswordResetVerifyCodeFailure} from "../../../../../Core/Failure/PasswordResetFailure.jsx";
+import {PasswordResetVerifyCodeFailure} from "../../../../../Core/Failure/PasswordResetFailure.js";
 
 export default function PasswordResetVerifyCodeComponent ({code, setCode, goToGetPassword}){
     return VerifyCodeComponent({

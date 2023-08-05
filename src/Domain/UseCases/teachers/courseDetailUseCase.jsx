@@ -2,7 +2,7 @@ import {
   teacherCourseDetailRepository,
   teacherCourseDetailGerStudentsSettingRepository,
   teacherCourseDetailSetStudentAccessRepository,
-} from "../../../Data/Repositories/teachers/courseDetailRespository";
+} from "../../../Data/Repositories/Teachers/courseDetailRespository.js";
 
 async function teacherCourseDetailUseCase(courseId) {
   return await teacherCourseDetailRepository(courseId);

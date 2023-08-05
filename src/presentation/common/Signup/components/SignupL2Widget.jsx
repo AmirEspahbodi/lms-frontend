@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signupL2Fields } from "../../../../Core/constants/FormFields.jsx";
+import { signupL2Fields } from "../../../../Core/constants/FormFields.js";
 import FormAction from "../../../../Core/components/FormAction.jsx";
 import Input from "../../../../Core/components/Input.jsx";
-import {SignupL2UseCase} from "../../../../Domain/UseCases/common/signupUseCase.jsx";
-import Failure from "../../../../Core/Failure/Failure.jsx";
-import API_ROUTES from "../../../../Core/constants/Routs.jsx";
+import {SignupL2UseCase} from "../../../../Domain/UseCases/common/signupUseCase.js";
+import Failure from "../../../../Core/Failure/Failure.js";
+import API_ROUTES from "../../../../Core/constants/Routs.js";
 
 const fields = signupL2Fields;
 let fieldsState = {};

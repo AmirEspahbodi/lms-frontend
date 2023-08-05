@@ -1,7 +1,7 @@
 import {
   EmailVerificationGetCodeRepository,
   EmailVerificationSendCodeRepository,
-} from "../../../Data/Repositories/common/EmailVerificationRepository";
+} from "../../../Data/Repositories/common/EmailVerificationRepository.js";
 
 async function EmailVerificationGetCodeUseCase(emailData) {
   return await EmailVerificationGetCodeRepository(emailData);

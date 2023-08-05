@@ -1,4 +1,4 @@
-import LoginRespository from "../../../Data/Repositories/common/LoginRepository";
+import LoginRespository from "../../../Data/Repositories/common/LoginRepository.js";
 
 async function LoginUseCase(loginState) {
   const result = await LoginRespository(loginState);

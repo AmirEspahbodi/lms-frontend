@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import APP_ROUTES from "../constants/Routs";
+import APP_ROUTES from "../constants/Routs.js";
 import "../styles/header.css";
-import LogOutAPI from "../../Data/DataSource/API/common/LogOutAPI";
-import LogOutAllAPI from "../../Data/DataSource/API/common/LogOutAllAPI.jsx";
+import LogOutAPI from "../../Data/DataSource/API/common/LogOutAPI.js";
+import LogOutAllAPI from "../../Data/DataSource/API/common/LogOutAllAPI.js";
 
 export default function Header() {
   const navigate = useNavigate();

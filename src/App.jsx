@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useEffect} from "react";
-import APP_ROUTES from "./Core/constants/Routs";
+import APP_ROUTES from "./Core/constants/Routs.js";
 
 import SignupUserView from "./presentation/common/Signup/SignupView";
 import EmailVerificationView from "./presentation/common/EmailVerification/EmailVerificationView";
@@ -13,7 +13,7 @@ import TeacherCourseDetailView from "./presentation/teachers/courseDetail/course
 import StudentHomeView from "./presentation/students/home/HomeView";
 import TeacherHomeView from "./presentation/teachers/home/HomeView";
 import RootLayout from "./Core/components/RootLayout.jsx";
-import {getUser} from "./Core/security/getAuthenticatedUser.jsx";
+import {getUser} from "./Core/security/getAuthenticatedUser.js";
 import Header from "./Core/components/Header.jsx";
 
 function App() {

@@ -1,7 +1,7 @@
 import axios from "axios";
-import SERVER_APIS from "../../../../Core/constants/ServerAPIs.jsx";
-import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.jsx";
-import UnknownFailure from "../../../../Core/Failure/UnknownFailure.jsx";
+import SERVER_APIS from "../../../../Core/constants/ServerAPIs.js";
+import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../../../../Core/Failure/UnknownFailure.js";
 import {
     PasswordResetConfirmResponseModel, PasswordResetGetCodeResponseModel,
     PasswordResetVerifyCodeResponseModel
@@ -9,7 +9,7 @@ import {
 import {
     PasswordResetConfirmFailure, PasswordResetGetCodeFailure,
     PasswordResetVerifyCodeFailure
-} from "../../../../Core/Failure/PasswordResetFailure.jsx";
+} from "../../../../Core/Failure/PasswordResetFailure.js";
 
 
 async function PasswordResetGetCodeAPI(email) {

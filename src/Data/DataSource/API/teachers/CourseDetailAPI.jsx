@@ -1,12 +1,12 @@
-import CommonFailure from "../../../../Core/Failure/CommonFailures";
-import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure";
-import UnknownFailure from "../../../../Core/Failure/UnknownFailure";
-import SERVER_APIS from "../../../../Core/constants/ServerAPIs";
-import { getRequest, putRequest } from "../../../../Core/security/sendRequest";
+import CommonFailure from "../../../../Core/Failure/CommonFailures.js";
+import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.js";
+import UnknownFailure from "../../../../Core/Failure/UnknownFailure.js";
+import SERVER_APIS from "../../../../Core/constants/ServerAPIs.js";
+import { getRequest, putRequest } from "../../../../Core/security/sendRequest.js";
 import {
   TeacherSetStudentResponseModel,
   TeacherCourseDetailModel,
-} from "../../../Models/teachers/courseDetailModel";
+} from "../../../Models/teachers/courseDetailModel.js";
 
 async function teacherCourseDetailAPI(courseId) {
   try {

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import courseDetailUseCase from "../../../../Domain/UseCases/Students/courseDetailUseCase";
-import Failure from "../../../../Core/Failure/Failure";
+import courseDetailUseCase from "../../../../Domain/UseCases/Students/courseDetailUseCase.js";
+import Failure from "../../../../Core/Failure/Failure.js";
 import { useNavigate, useParams } from "react-router-dom";
-import { goToSession, showWeekDay } from "../../../../Core/utils/utilsFuncs";
-import checkAuth from "../../../../Core/security/checkAuth";
-import checkPermission from "../../../../Core/security/checkPermission";
+import { goToSession, showWeekDay } from "../../../../Core/utils/utilsFuncs.js";
+import checkAuth from "../../../../Core/security/checkAuth.js";
+import checkPermission from "../../../../Core/security/checkPermission.js";
 
 export default function StudentCourseDetailWidget() {
   const [sessions, setSessions] = useState([]);
