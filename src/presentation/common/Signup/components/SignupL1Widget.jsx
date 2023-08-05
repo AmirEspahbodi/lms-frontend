@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signupFields } from "../../../../Core/constants/formFields";
-import FormAction from "../../../../Core/components/FormAction";
-import Input from "../../../../Core/components/Input";
-import StudentSignupUseCase from "../../../../Domain/UseCases/Students/signupUseCase";
-import Failure from "../../../../Core/Failure/Failure";
-import API_ROUTES from "../../../../Core/constants/Routs";
+import { signupL1Fields } from "../../../../Core/constants/FormFields.jsx";
+import FormAction from "../../../../Core/components/FormAction.jsx";
+import Input from "../../../../Core/components/Input.jsx";
+import {SignupL1UseCase} from "../../../../Domain/UseCases/common/signupUseCase.jsx";
+import Failure from "../../../../Core/Failure/Failure.jsx";
 
-const fields = signupFields;
+const fields = signupL1Fields;
 let fieldsState = {};
 let fieldsErrorState = {};
 
 fields.forEach((field) => (fieldsState[field.id] = ""));
 fields.forEach((field) => (fieldsErrorState[field.id] = null));
 
-export default function Signup() {
-  const navigation = useNavigate();
+export default function SignupL1({setSignupL1Data}) {
   const [signupState, setSignupState] = useState(fieldsState);
   const [errorState, setErrorState] = useState(fieldsErrorState);
 
@@ -24,15 +21,17 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const signupResult = StudentSignupUseCase(signupState);
+    const signupResult = SignupL1UseCase(signupState);
     signupResult.then((result) => {
+      console.log(result)
       if (result instanceof Failure) {
         handleErrors(result);
       } else {
         clearErrors();
-        console.log("signup result is");
-        console.log(result);
-        navigation(API_ROUTES.LOGIN);
+        setSignupL1Data({
+          userId:result.id,
+          level:2
+        })
       }
     });
   };
@@ -46,17 +45,7 @@ export default function Signup() {
 
   const handleErrors = (result) => {
     let newErrorState = {};
-    fields.forEach((field) => (newErrorState[field.id] = null));
-    newErrorState.school = result.school;
-    newErrorState.degree = result.degree;
-    newErrorState.field = result.field;
-    newErrorState.first_name = result.user.first_name;
-    newErrorState.last_name = result.user.last_name;
-    newErrorState.email = result.user.email;
-    newErrorState.username = result.user.username;
-    newErrorState.phone_number = result.user.phone_number;
-    newErrorState.password1 = result.user.password1;
-    newErrorState.password2 = result.user.password2;
+    fields.forEach((field) => (newErrorState[field.id] = result[field.id] ?? null));
     setErrorState(newErrorState);
   };
 
@@ -81,7 +70,7 @@ export default function Signup() {
             }
           />
         ))}
-        <FormAction handleSubmit={handleSubmit} text="Signup" />
+        <FormAction handleSubmit={handleSubmit} text="next" />
       </div>
     </form>
   );

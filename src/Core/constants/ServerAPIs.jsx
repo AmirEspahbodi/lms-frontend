@@ -1,5 +1,6 @@
 const SERVER_APIS = {
-  STUDENT_SIGNUP: "http://127.0.0.1:8000/apis/students/register/",
+  SIGNUPL1: "http://127.0.0.1:8000/apis/accounts/signup_l1/",
+  SIGNUPL2: "http://127.0.0.1:8000/apis/accounts/signup_l2/",
   LOGIN: "http://127.0.0.1:8000/apis/accounts/login/",
   TOKEN_VERIFY: "http://127.0.0.1:8000/apis/accounts/token/verify/",
   LOGOUT: "http://127.0.0.1:8000/apis/accounts/logout/",

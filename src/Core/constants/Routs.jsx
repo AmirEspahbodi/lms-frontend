@@ -1,6 +1,6 @@
 const APP_ROUTES = {
   LOGIN_USER: "/login/",
-  STUDENT_SIGNUP: "/student/signup/",
+  SIGNUP_USER: "/signup/",
   PASSWORD_RESET: "/password/reset/",
   EMAIL_VERIFICATION: "/email/verification/",
   STUDENT_HOME: "/student/home/",

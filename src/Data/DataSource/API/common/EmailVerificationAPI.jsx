@@ -32,9 +32,6 @@ async function EmailVerificationGetCodeAPI(emailData) {
 
 async function EmailVerificationSendCodeAPI(codeData) {
   try {
-    console.log("EmailVerificationSendCodeAPI()");
-    console.log(codeData);
-    console.log(SERVER_APIS.EMAIL_VERIFICATION_CONFIRM);
     const response = await axios.post(
       SERVER_APIS.EMAIL_VERIFICATION_CONFIRM,
       codeData

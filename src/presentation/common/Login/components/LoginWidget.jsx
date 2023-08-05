@@ -19,7 +19,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [loginState, setLoginState] = useState(fieldsState);
   const [errorState, setErrorState] = useState(fieldsErrorState);
-  const [isEmailVeried, setIsEmailVeried] = useState(true);
+  const [isEmailVerified, setIsEmailVerified] = useState(true);
 
   const handleChange = (e) => {
     setLoginState({ ...loginState, [e.target.id]: e.target.value });
@@ -46,7 +46,7 @@ export default function Login() {
     let newErrorState = {};
     fields.forEach((field) => (newErrorState[field.id] = null));
     newErrorState.non_field_errors = null;
-    setIsEmailVeried(true);
+    setIsEmailVerified(true);
     setErrorState(newErrorState);
   };
 
@@ -57,7 +57,7 @@ export default function Login() {
       result.non_field_errors[0] == "EMAIL_VERIFICATION"
         ? ["you must verify your email"]
         : result.non_field_errors;
-    setIsEmailVeried(!(result.non_field_errors[0] == "EMAIL_VERIFICATION"));
+    setIsEmailVerified(!(result.non_field_errors[0] == "EMAIL_VERIFICATION"));
     newErrorState.login_field = result.login_field;
     newErrorState.password = result.password;
     setErrorState(newErrorState);
@@ -87,7 +87,7 @@ export default function Login() {
         <p className="signup_error">{errorState.non_field_errors}</p>
       </div>
 
-      <FormExtra emailVerifed={isEmailVeried} />
+      <FormExtra emailVerifed={isEmailVerified} />
       <FormAction handleSubmit={handleSubmit} text="Login" />
     </form>
   );

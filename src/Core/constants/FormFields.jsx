@@ -21,37 +21,7 @@ const loginFields = [
   },
 ];
 
-const signupFields = [
-  {
-    labelText: "school",
-    labelFor: "school",
-    id: "school",
-    name: "school",
-    type: "text",
-    autoComplete: "school",
-    isRequired: true,
-    placeholder: "school",
-  },
-  {
-    labelText: "degree",
-    labelFor: "degree",
-    id: "degree",
-    name: "degree",
-    type: "number",
-    autoComplete: "degree",
-    isRequired: true,
-    placeholder: "degree",
-  },
-  {
-    labelText: "field",
-    labelFor: "field",
-    id: "field",
-    name: "field",
-    type: "text",
-    autoComplete: "field",
-    isRequired: true,
-    placeholder: "field",
-  },
+const signupL1Fields = [
   {
     labelText: "first_name",
     labelFor: "first_name",
@@ -103,6 +73,16 @@ const signupFields = [
     placeholder: "phone number",
   },
   {
+    labelText: "role ",
+    labelFor: "role",
+    id: "role",
+    name: "role",
+    type: "text",
+    autoComplete: "role",
+    isRequired: true,
+    placeholder: "role",
+  },
+  {
     labelText: "Password",
     labelFor: "password1",
     id: "password1",
@@ -121,6 +101,99 @@ const signupFields = [
     autoComplete: "password2",
     isRequired: true,
     placeholder: "Confirm Password",
+  },
+];
+
+const signupL2Fields = [
+  {
+    labelText: "national_code",
+    labelFor: "national_code",
+    id: "national_code",
+    name: "national_code",
+    type: "number",
+    autoComplete: "national_code",
+    isRequired: true,
+    placeholder: "national code",
+  },
+  {
+    labelText: "secondary_phone_number",
+    labelFor: "secondary_phone_number",
+    id: "secondary_phone_number",
+    name: "secondary_phone_number",
+    type: "text",
+    autoComplete: "secondary_phone_number",
+    isRequired: true,
+    placeholder: "secondary phone number",
+  },
+  {
+    labelText: "province",
+    labelFor: "province",
+    id: "province",
+    name: "province",
+    type: "text",
+    autoComplete: "province",
+    isRequired: true,
+    placeholder: "province",
+  },
+  {
+    labelText: "city ",
+    labelFor: "city",
+    id: "city",
+    name: "city",
+    type: "text",
+    autoComplete: "city",
+    isRequired: true,
+    placeholder: "city",
+  },
+  {
+    labelText: "address",
+    labelFor: "address",
+    id: "address",
+    name: "address",
+    type: "text",
+    autoComplete: "address",
+    isRequired: true,
+    placeholder: "address",
+  },
+  {
+    labelText: "postal_code ",
+    labelFor: "postal_code",
+    id: "postal_code",
+    name: "postal_code",
+    type: "text",
+    autoComplete: "postal_code",
+    isRequired: true,
+    placeholder: "postal code",
+  },
+  {
+    labelText: "date_of_birth",
+    labelFor: "date_of_birth",
+    id: "date_of_birth",
+    name: "date_of_birth",
+    type: "date",
+    autoComplete: "date_of_birth",
+    isRequired: true,
+    placeholder: "date_of_birth",
+  },
+  {
+    labelText: "father_name",
+    labelFor: "father_name",
+    id: "father_name",
+    name: "password2",
+    type: "password",
+    autoComplete: "father_name",
+    isRequired: true,
+    placeholder: "father_name",
+  },
+  {
+    labelText: "  home_phone_number",
+    labelFor: "  home_phone_number",
+    id: "home_phone_number",
+    name: "home_phone_number",
+    type: "text",
+    autoComplete: "home_phone_number",
+    isRequired: true,
+    placeholder: "home_phone_number",
   },
 ];
 
@@ -150,4 +223,27 @@ const SixDigitCodeField = [
   },
 ];
 
-export { loginFields, signupFields, EmailRequestCodeField, SixDigitCodeField };
+const PasswordResetField = [
+  {
+    labelText: "new_password1",
+    labelFor: "new_password1",
+    id: "new_password1",
+    name: "new_password1",
+    type: "password",
+    autoComplete: "new password",
+    isRequired: true,
+    placeholder: "new password",
+  },
+  {
+    labelText: "new_password2",
+    labelFor: "new_password2",
+    id: "new_password2",
+    name: "new_password2",
+    type: "password",
+    autoComplete: "new password",
+    isRequired: true,
+    placeholder: "new password",
+  },
+];
+
+export { loginFields, signupL1Fields, signupL2Fields, EmailRequestCodeField, SixDigitCodeField , PasswordResetField};

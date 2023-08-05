@@ -3,15 +3,18 @@ import APP_ROUTES from "../../../Core/constants/Routs";
 import { getAuthenticatedUser } from "../../../Core/security/getAuthenticatedUser";
 import { useEffect } from "react";
 
-APP_ROUTES;
 
 function SplashView() {
   const navigate = useNavigate();
   useEffect(() => {
     const result = getAuthenticatedUser();
     result.then((result) => {
+      console.log(result)
       const { user, authenticated } = result;
-      if (user || authenticated) {
+      if (! authenticated) {
+        navigate(APP_ROUTES.LOGIN_USER);
+      }
+      else if (user) {
         if (user.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
         else if (user.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
         else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);
