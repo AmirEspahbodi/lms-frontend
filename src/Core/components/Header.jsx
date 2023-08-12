@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import APP_ROUTES from "../constants/Routs.js";
-import "../styles/header.css";
+import "../../../styles/header.css";
 import LogOutAPI from "../../Data/DataSource/API/common/LogOutAPI.js";
 import LogOutAllAPI from "../../Data/DataSource/API/common/LogOutAllAPI.js";
 import {useContext} from "react";
@@ -31,7 +31,14 @@ export default function Header() {
             </li>
           </ul>
           <div className="dropdown-toggle" onClick={toggleDropdown}>
-            <div>{"username"}</div>
+            <div>{
+              ((authContext.user.firstname===undefined || false ||authContext.user.firstname==='')
+                &&
+              (authContext.user.lastname===undefined || false ||authContext.user.lastname==='')) ?
+                  authContext.user.username:
+                  authContext.user.firstname+" "+authContext.user.lastname
+
+            }</div>
             <ul className="dropdown-menu">
               <li onClick={async () => {}}>Profile</li>
               <li

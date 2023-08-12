@@ -25,8 +25,7 @@
   margin: 10px;
   border-radius: 10px;
   background-color: rgba(150, 150, 150, 0.2);
-  min-width: max-content;
-  max-width: max-content;
+  min-width: 300px;
 }
 
 .course-title,

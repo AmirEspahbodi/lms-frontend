@@ -9,13 +9,11 @@ import AuthContext from "../../../Core/contexts/root-context.jsx";
 export default function SignupUserPage() {
     const navigate = useNavigate();
     const authContext = useContext(AuthContext);
-    useEffect(() => {
-        if (authContext.isAuthenticated && authContext.user) {
-            if (authContext.user.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
-            else if (authContext.user.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
-            else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);
-        }
-    }, []);
+    if (authContext.isAuthenticated===false && authContext.user.user_id!==null) {
+        if (authContext.user.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
+        else if (authContext.user.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
+        else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);
+    }
 
     const [signupL1Data, setSignupL1Data] = useState({
         userId:0,

@@ -1,25 +1,27 @@
+const SERVER = "http://127.0.0.1:8000";
 const SERVER_APIS = {
-  SIGNUPL1: "http://127.0.0.1:8000/apis/accounts/signup_l1/",
-  SIGNUPL2: "http://127.0.0.1:8000/apis/accounts/signup_l2/",
-  LOGIN: "http://127.0.0.1:8000/apis/accounts/login/",
-  TOKEN_VERIFY: "http://127.0.0.1:8000/apis/accounts/token/verify/",
-  LOGOUT: "http://127.0.0.1:8000/apis/accounts/logout/",
-  LOGOUT_ALL: "http://127.0.0.1:8000/apis/accounts/logout_all/",
+  SIGNUPL1: `${SERVER}/apis/accounts/signup_l1/`,
+  SIGNUPL2: `${SERVER}/apis/accounts/signup_l2/`,
+  LOGIN: `${SERVER}/apis/accounts/login/`,
+  TOKEN_VERIFY: `${SERVER}/apis/accounts/token/verify/`,
+  LOGOUT: `${SERVER}/apis/accounts/logout/`,
+  LOGOUT_ALL: `${SERVER}/apis/accounts/logout_all/`,
 
   PASSWORD_RESET_REQUEST_CODE:
-    "http://127.0.0.1:8000/apis/accounts/password/reset/get_code/",
+    `${SERVER}/apis/accounts/password/reset/get_code/`,
   PASSWORD_RESET_VERIFY_CODE:
-    "http://127.0.0.1:8000/apis/accounts/password/reset/verify_code/",
+    `${SERVER}/apis/accounts/password/reset/verify_code/`,
   PASSWORD_RESET_CONFIRM:
-    "http://127.0.0.1:8000/apis/accounts/password/reset/confirm/",
+    `${SERVER}/apis/accounts/password/reset/confirm/`,
 
   EMAIL_VERIFICATION_REQUEST_CODE:
-    "http://127.0.0.1:8000/apis/accounts/email/verification/get_code/",
+    `${SERVER}/apis/accounts/email/verification/get_code/`,
   EMAIL_VERIFICATION_CONFIRM:
-    "http://127.0.0.1:8000/apis/accounts/email/verification/confirm/",
+    `${SERVER}/apis/accounts/email/verification/confirm/`,
 
-  STUDENT_HOME: "http://127.0.0.1:8000/apis/students/home/",
-  TEACHER_HOME: "http://127.0.0.1:8000/apis/teachers/home/",
+  STUDENT_HOME: `${SERVER}/apis/students/home/`,
+  TEACHER_HOME: `${SERVER}/apis/teachers/home/`,
+  COURSE_SEARCH: `${SERVER}/apis/courses/search/`,
   STUDENT_COURSE_DETAIL: (courseID) =>
     `http://127.0.0.1:8000/apis/students/course/${courseID}/`,
   TEACHER_COURSE_DETAIL: (courseID) =>

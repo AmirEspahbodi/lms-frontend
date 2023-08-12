@@ -72,6 +72,23 @@ button:focus-visible {
   cursor: pointer;
 }
 
+.search-input-container{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  gap: 20px;
+}
+
+.search-input-container > .search-input{
+  border-radius: 10px;
+  height: 40px;
+  min-width: 300px;
+  width: 30%;
+}
+.search-input-container> .button-input {
+  height: 40px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

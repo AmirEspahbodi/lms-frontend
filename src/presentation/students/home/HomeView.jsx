@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
 import StudentHomeUseCase from "../../../Domain/UseCases/Students/homeUseCase.js";
 import Failure from "../../../Core/Failure/Failure.js";
-import "../../../Core/styles/home.css";
-import "../../../Core/styles/course.css";
+import "../../../../styles/home.css";
+import "../../../../styles/course.css";
 import {
   goToCourse,
   goToSession,
@@ -51,10 +51,10 @@ export default function StudentHomeView() {
     }
   };
   const authContext = useContext(AuthContext);
+  if (authContext.isAuthenticated !== null && authContext.isAuthenticated===false) {
+    navigate(APP_ROUTES.LOGIN_USER);
+  }
   useEffect(() => {
-    if (! authContext.isAuthenticated) {
-      navigate(APP_ROUTES.LOGIN_USER);
-    }
     checkPermission(setPermission);
     fetchData();
   }, []);

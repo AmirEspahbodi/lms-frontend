@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Failure from "../../../Core/Failure/Failure.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs.js";
-import "../../../Core/styles/course.css";
+import "../../../../styles/course.css";
 import authProcces from "../../../Core/security/auth.js";
 import checkPermission from "../../../Core/security/checkPermission.js";
 import { teacherCourseDetailUseCase } from "../../../Domain/UseCases/teachers/courseDetailUseCase";

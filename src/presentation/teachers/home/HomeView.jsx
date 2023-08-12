@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
 import TeacherHomeUseCase from "../../../Domain/UseCases/teachers/homeUseCase";
 import Failure from "../../../Core/Failure/Failure.js";
-import "../../../Core/styles/home.css";
-import "../../../Core/styles/course.css";
+import "../../../../styles/home.css";
+import "../../../../styles/course.css";
 import {
   goToCourse,
   goToSession,

@@ -1,4 +1,4 @@
-import "../../../Core/styles/course.css";
+import "../../../../styles/course.css";
 import StudentCourseDetailWidget from "./components/courseDetailWidget";
 
 function StudentCourseDetailView() {
