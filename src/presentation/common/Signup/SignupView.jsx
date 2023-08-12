@@ -1,10 +1,22 @@
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import AuthHeader from "../../../Core/components/AuthHeader.jsx";
 import APP_ROUTES from "../../../Core/constants/Routs.js";
 import SignupL1 from "./components/SignupL1Widget.jsx";
 import SignupL2 from "./components/SignupL2Widget.jsx";
+import {useNavigate} from "react-router-dom";
+import AuthContext from "../../../Core/contexts/root-context.jsx";
 
 export default function SignupUserPage() {
+    const navigate = useNavigate();
+    const authContext = useContext(AuthContext);
+    useEffect(() => {
+        if (authContext.isAuthenticated && authContext.user) {
+            if (authContext.user.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
+            else if (authContext.user.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
+            else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);
+        }
+    }, []);
+
     const [signupL1Data, setSignupL1Data] = useState({
         userId:0,
         level:1,

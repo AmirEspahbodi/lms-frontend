@@ -1,14 +1,15 @@
 const APP_ROUTES = {
+  SPLASH: "/",
+  CONTACT_US: "/contact-us",
   LOGIN_USER: "/login/",
   SIGNUP_USER: "/signup/",
   PASSWORD_RESET: "/password/reset/",
-  EMAIL_VERIFICATION: "/email/verification/",
-  STUDENT_HOME: "/student/home/",
-  TEACHER_HOME: "/teacher/home/",
   NO_PAGE_FOR_YOUR_ROLE: "/preferenced/",
-  SPLASH: "/",
-  CONTACT_US: "CONTACT_US",
+  EMAIL_VERIFICATION: "/email/verification/",
+  SEARCH: "/course/search/",
+  STUDENT_HOME: "/student/home/",
   STUDENT_COURSE_DETAIL: "/student/course/:courseId/",
+  TEACHER_HOME: "/teacher/home/",
   TEACHER_COURSE_DETAIL: "/teacher/course/:courseId/",
 };
 

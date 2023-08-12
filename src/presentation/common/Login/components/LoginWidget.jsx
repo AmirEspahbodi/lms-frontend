@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import { loginFields } from "../../../../Core/constants/FormFields.js";
 import FormAction from "../../../../Core/components/FormAction";
 import FormExtra from "./FormExtra";
@@ -7,6 +7,7 @@ import LoginUseCase from "../../../../Domain/UseCases/common/LoginUseCase.js";
 import Failure from "../../../../Core/Failure/Failure.js";
 import { useNavigate } from "react-router-dom";
 import APP_ROUTES from "../../../../Core/constants/Routs.js";
+import AuthContext from "../../../../Core/contexts/root-context.jsx";
 
 const fields = loginFields;
 let fieldsState = {};
@@ -16,6 +17,7 @@ fields.forEach((field) => (fieldsErrorState[field.id] = null));
 fieldsErrorState["non_field_errors"] = null;
 
 export default function Login() {
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginState, setLoginState] = useState(fieldsState);
   const [errorState, setErrorState] = useState(fieldsErrorState);
@@ -35,6 +37,16 @@ export default function Login() {
         handleErrors(result);
       } else {
         clearErrors();
+        authContext.authHandler({
+          isAuthenticated:true,
+          user: {
+            user_id:result.user_id,
+            username:result.username,
+            firstname:result.first_name,
+            lastname:result.last_name,
+            role:result.role,
+          }
+        });
         if (result.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
         else if (result.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
         else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);

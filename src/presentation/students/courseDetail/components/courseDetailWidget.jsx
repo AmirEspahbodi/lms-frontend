@@ -3,7 +3,7 @@ import courseDetailUseCase from "../../../../Domain/UseCases/Students/courseDeta
 import Failure from "../../../../Core/Failure/Failure.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToSession, showWeekDay } from "../../../../Core/utils/utilsFuncs.js";
-import checkAuth from "../../../../Core/security/checkAuth.js";
+// import authProcces from "../../../../Core/security/auth.js";
 import checkPermission from "../../../../Core/security/checkPermission.js";
 
 export default function StudentCourseDetailWidget() {
@@ -13,13 +13,12 @@ export default function StudentCourseDetailWidget() {
   const navigate = useNavigate();
   const fetchData = async () => {
     const result = await courseDetailUseCase(courseId);
-    if (result instanceof Failure) {
-    } else {
+    if (!(result instanceof Failure)) {
       setSessions(result.sessions);
     }
   };
   useEffect(() => {
-    checkAuth(navigate);
+    // authProcces(navigate);
     checkPermission(setPromission);
     fetchData();
   }, []);

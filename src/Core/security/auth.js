@@ -23,4 +23,5 @@ async function getAuthenticatedUser() {
   }
 }
 
-export { getUser, getAuthenticatedUser };
+export { getUser };
+export default  getAuthenticatedUser;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
 import StudentHomeUseCase from "../../../Domain/UseCases/Students/homeUseCase.js";
@@ -10,14 +10,16 @@ import {
   goToSession,
   showSemester,
 } from "../../../Core/utils/utilsFuncs.js";
-import checkAuth from "../../../Core/security/checkAuth.js";
+import authProcces from "../../../Core/security/auth.js";
 import checkPermission from "../../../Core/security/checkPermission.js";
+import AuthContext from "../../../Core/contexts/root-context.jsx";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
 
 export default function StudentHomeView() {
   const [courses, setCourses] = useState([]);
   const [exams, setExams] = useState([]);
   const [assignments, setEssignments] = useState([]);
-  const [has_peromission, setPromission] = useState(true);
+  const [has_permission, setPermission] = useState(true);
   const [isRespondGenerated, setIsRespondGenerated] = useState(false);
   const [dailyCalendar, setDailyCalendar] = useState([]);
   let daysOfWeek = [
@@ -40,8 +42,7 @@ export default function StudentHomeView() {
   const fetchData = async () => {
     const result = await StudentHomeUseCase();
     console.log(result);
-    if (result instanceof Failure) {
-    } else {
+    if (!(result instanceof Failure)) {
       setCourses(result.courses);
       setExams(result.exams);
       setEssignments(result.assignments);
@@ -49,10 +50,12 @@ export default function StudentHomeView() {
       setIsRespondGenerated(true);
     }
   };
-
+  const authContext = useContext(AuthContext);
   useEffect(() => {
-    checkAuth(navigate);
-    checkPermission(setPromission);
+    if (! authContext.isAuthenticated) {
+      navigate(APP_ROUTES.LOGIN_USER);
+    }
+    checkPermission(setPermission);
     fetchData();
   }, []);
 
@@ -63,10 +66,8 @@ export default function StudentHomeView() {
   const calendarTopItem = (index) => {
     setWrapperRight(index * 100);
   };
-  if (has_peromission & isRespondGenerated)
+  if (has_permission && isRespondGenerated)
     return (
-      <>
-        <Header />
         <div className="grid md:grid-cols-2  gap-8 student-home-box">
           <div className="">
             <h2 className="home-box-item-title">current courses</h2>
@@ -101,7 +102,7 @@ export default function StudentHomeView() {
             <div className="home-box-exams">
               {exams.map((exam, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p></p>
                   </div>
                 );
@@ -111,7 +112,7 @@ export default function StudentHomeView() {
             <div className="home-box-assignments">
               {assignments.map((assignment, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p></p>
                   </div>
                 );
@@ -147,7 +148,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[0].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -177,7 +178,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[1].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -207,7 +208,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[2].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -237,7 +238,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[3].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -267,7 +268,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[4].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -297,7 +298,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[5].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -327,7 +328,7 @@ export default function StudentHomeView() {
                     {dailyCalendar[6].map((weekDay, index) => {
                       return (
                         <div
-                          id={index}
+                          key={index}
                           className="calendar-wrapper-item-body calendar-wrapper-item-body-content"
                         >
                           <div>{index + 1}</div>
@@ -358,16 +359,12 @@ export default function StudentHomeView() {
             </div>
           </div>
         </div>
-      </>
     );
-  else if (!has_peromission)
+  else if (!has_permission)
     return (
-      <>
-        <Header />
-        <div>
-          <p>permission denied!</p>
-        </div>
-      </>
+      <div>
+        <p>permission denied!</p>
+      </div>
     );
   else return <div></div>;
 }

@@ -3,10 +3,14 @@ import APP_ROUTES from "../constants/Routs.js";
 import "../styles/header.css";
 import LogOutAPI from "../../Data/DataSource/API/common/LogOutAPI.js";
 import LogOutAllAPI from "../../Data/DataSource/API/common/LogOutAllAPI.js";
+import {useContext} from "react";
+import AuthContext from "../contexts/root-context.jsx";
 
 export default function Header() {
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   const toggleDropdown = () => {};
+  if (authContext.isAuthenticated)
     return (
       <header>
         <div className="flex-container">
@@ -18,7 +22,13 @@ export default function Header() {
             >
               home
             </li>
-            <li>news</li>
+            <li
+              onClick={() => {
+                navigate(APP_ROUTES.SEARCH);
+              }}
+            >
+              search
+            </li>
           </ul>
           <div className="dropdown-toggle" onClick={toggleDropdown}>
             <div>{"username"}</div>
@@ -27,7 +37,17 @@ export default function Header() {
               <li
                 onClick={async () => {
                   await LogOutAPI();
-                  navigate(APP_ROUTES.SPLASH);
+                  authContext.authHandler({
+                    isAuthenticated: false,
+                    user: {
+                      id: null,
+                      username: null,
+                      firstname: null,
+                      lastname: null,
+                      role: null,
+                    }
+                  });
+                  navigate(APP_ROUTES.LOGIN_USER);
                 }}
               >
                 logout
@@ -35,7 +55,17 @@ export default function Header() {
               <li
                 onClick={async () => {
                   await LogOutAllAPI();
-                  navigate(APP_ROUTES.SPLASH);
+                  authContext.authHandler({
+                    isAuthenticated: false,
+                    user: {
+                      id: null,
+                      username: null,
+                      firstname: null,
+                      lastname: null,
+                      role: null,
+                    }
+                  });
+                  navigate(APP_ROUTES.LOGIN_USER);
                 }}
               >
                 logout all
@@ -45,4 +75,32 @@ export default function Header() {
         </div>
       </header>
     );
+  else return (
+      <header>
+        <div className="flex-container">
+          <ul className="left-list">
+            <li> elearning system </li>
+            <li
+                onClick={() => {
+                  navigate(APP_ROUTES.SEARCH);
+                }}
+            >
+              search
+            </li>
+          </ul>
+          <div style={{display:'flex', gap:'10px'}}>
+            <div  onClick={() => {
+              navigate(APP_ROUTES.LOGIN_USER);
+            }}>
+              login
+            </div>
+            <div  onClick={() => {
+              navigate(APP_ROUTES.SIGNUP_USER);
+            }}>
+              signup
+            </div>
+          </div>
+        </div>
+      </header>
+  );
 }

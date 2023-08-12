@@ -112,7 +112,7 @@ const signupL2Fields = [
     name: "national_code",
     type: "number",
     autoComplete: "national_code",
-    isRequired: true,
+    isRequired: false,
     placeholder: "national code",
   },
   {
@@ -122,7 +122,7 @@ const signupL2Fields = [
     name: "secondary_phone_number",
     type: "text",
     autoComplete: "secondary_phone_number",
-    isRequired: true,
+    isRequired: false,
     placeholder: "secondary phone number",
   },
   {
@@ -132,7 +132,7 @@ const signupL2Fields = [
     name: "province",
     type: "text",
     autoComplete: "province",
-    isRequired: true,
+    isRequired: false,
     placeholder: "province",
   },
   {
@@ -142,7 +142,7 @@ const signupL2Fields = [
     name: "city",
     type: "text",
     autoComplete: "city",
-    isRequired: true,
+    isRequired: false,
     placeholder: "city",
   },
   {
@@ -152,7 +152,7 @@ const signupL2Fields = [
     name: "address",
     type: "text",
     autoComplete: "address",
-    isRequired: true,
+    isRequired: false,
     placeholder: "address",
   },
   {
@@ -162,7 +162,7 @@ const signupL2Fields = [
     name: "postal_code",
     type: "text",
     autoComplete: "postal_code",
-    isRequired: true,
+    isRequired: false,
     placeholder: "postal code",
   },
   {
@@ -172,18 +172,18 @@ const signupL2Fields = [
     name: "date_of_birth",
     type: "date",
     autoComplete: "date_of_birth",
-    isRequired: true,
+    isRequired: false,
     placeholder: "date_of_birth",
   },
   {
     labelText: "father_name",
     labelFor: "father_name",
     id: "father_name",
-    name: "password2",
-    type: "password",
+    name: "father_name",
+    type: "text",
     autoComplete: "father_name",
-    isRequired: true,
-    placeholder: "father_name",
+    isRequired: false,
+    placeholder: "father name",
   },
   {
     labelText: "  home_phone_number",
@@ -192,7 +192,7 @@ const signupL2Fields = [
     name: "home_phone_number",
     type: "text",
     autoComplete: "home_phone_number",
-    isRequired: true,
+    isRequired: false,
     placeholder: "home_phone_number",
   },
 ];

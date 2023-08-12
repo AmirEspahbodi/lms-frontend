@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../Core/components/Header";
 import TeacherHomeUseCase from "../../../Domain/UseCases/teachers/homeUseCase";
@@ -10,8 +10,10 @@ import {
   goToSession,
   showSemester,
 } from "../../../Core/utils/utilsFuncs.js";
-import checkAuth from "../../../Core/security/checkAuth.js";
+import authProcces from "../../../Core/security/auth.js";
 import checkPermission from "../../../Core/security/checkPermission.js";
+import AuthContext from "../../../Core/contexts/root-context.jsx";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
 
 export default function TeacherHomeView() {
   const [courses, setCourses] = useState([]);
@@ -37,21 +39,26 @@ export default function TeacherHomeView() {
     .concat(daysOfWeek.slice(0, currDay - 1));
 
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  if (authContext.isAuthenticated === false) {
+    navigate(APP_ROUTES.LOGIN_USER);
+  }
+
   const fetchData = async () => {
     const result = await TeacherHomeUseCase();
     console.log(result);
-    if (result instanceof Failure) {
-    } else {
+    if (!(result instanceof Failure)) {
       setCourses(result.courses);
       setExams(result.exams);
       setEssignments(result.assignments);
       setDailyCalendar(result.weeklyData);
       setIsRespondGenerated(true);
+      console.log("in teacher home page");
+
     }
   };
 
   useEffect(() => {
-    checkAuth(navigate);
     checkPermission(setPromission);
     fetchData();
   }, []);
@@ -63,7 +70,7 @@ export default function TeacherHomeView() {
   const calendarTopItem = (index) => {
     setWrapperRight(index * 100);
   };
-  if (has_peromission & isRespondGenerated)
+  if (has_peromission && isRespondGenerated)
     return (
       <>
         <Header />
@@ -80,10 +87,6 @@ export default function TeacherHomeView() {
                     <div className="course-title">
                       {course?.course_title.title} group (
                       {course?.group_course_number})
-                    </div>
-                    <div className="teacher-name">
-                      {course?.teacher.user.first_name}{" "}
-                      {course?.teacher.user.last_name}
                     </div>
                     <div className="course-data">
                       period {showSemester(course?.semester.semester)}{" "}
