@@ -15,6 +15,7 @@ import Header from "./Core/components/Header.jsx";
 import AuthContext from "./Core/contexts/root-context.jsx";
 import getAuthenticatedUser from "./Core/security/auth.js";
 import SearchView from "./presentation/common/search/SearchView.jsx";
+import SearchDetailView from "./presentation/common/searchDetail/SearchDetailView.jsx";
 
 function App() {
   const authContext = useContext(AuthContext);
@@ -54,6 +55,10 @@ function App() {
         <Route
             path={APP_ROUTES.SEARCH}
             element={<SearchView />}
+        />
+        <Route
+            path={APP_ROUTES.SEARCH_DETAIL}
+            element={<SearchDetailView />}
         />
         <Route path={APP_ROUTES.STUDENT_HOME} element={<StudentHomeView />} />
         <Route

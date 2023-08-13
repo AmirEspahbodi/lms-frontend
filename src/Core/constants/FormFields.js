@@ -245,5 +245,37 @@ const PasswordResetField = [
     placeholder: "new password",
   },
 ];
+const FinancialAidField = [
+  {
+    labelText: "applying_reason",
+    labelFor: "applying_reason",
+    id: "applying_reason",
+    name: "applying_reason",
+    type: "text",
+    autoComplete: "applying reason",
+    isRequired: true,
+    placeholder: "applying reason",
+  },
+  {
+    labelText: "annual_income",
+    labelFor: "annual_income",
+    id: "annual_income",
+    name: "annual_income",
+    type: "number",
+    autoComplete: "annual income",
+    isRequired: true,
+    placeholder: "annual income",
+  },
+  {
+    labelText: "ability_to_pay",
+    labelFor: "ability_to_pay",
+    id: "ability_to_pay",
+    name: "ability_to_pay",
+    type: "number",
+    autoComplete: "ability to pay",
+    isRequired: true,
+    placeholder: "ability to pay",
+  },
+]
 
-export { loginFields, signupL1Fields, signupL2Fields, EmailRequestCodeField, SixDigitCodeField , PasswordResetField};
+export { loginFields, signupL1Fields, signupL2Fields, EmailRequestCodeField, SixDigitCodeField , PasswordResetField, FinancialAidField};

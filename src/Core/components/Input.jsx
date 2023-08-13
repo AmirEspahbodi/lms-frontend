@@ -15,7 +15,7 @@ export default function Input({
   error,
 }) {
   return (
-    <div className="my-5">
+    <div className="my-5" style={{marginBottom:"20px"}}>
       <label htmlFor={labelFor} className="sr-only">
         {labelText}
       </label>

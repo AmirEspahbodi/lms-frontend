@@ -1,0 +1,16 @@
+.modal{
+    left: 3.5%;
+    position: absolute;
+    top: -100%;
+    width: 90%;
+    height: fit-content;
+    background-color: #1a1a1a;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+.modal-exit {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-top-left-radius: 10px;
+}

@@ -73,7 +73,6 @@ export default function TeacherHomeView() {
   if (has_peromission && isRespondGenerated)
     return (
       <>
-        <Header />
         <div className="grid md:grid-cols-2  gap-8 student-home-box">
           <div className="">
             <h2 className="home-box-item-title">current courses</h2>

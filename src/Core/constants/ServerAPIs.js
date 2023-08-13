@@ -22,14 +22,17 @@ const SERVER_APIS = {
   STUDENT_HOME: `${SERVER}/apis/students/home/`,
   TEACHER_HOME: `${SERVER}/apis/teachers/home/`,
   COURSE_SEARCH: `${SERVER}/apis/courses/search/`,
+  COURSE_SEARCH_DETAIL: (courseID) =>`${SERVER}/apis/courses/search/${courseID}/`,
   STUDENT_COURSE_DETAIL: (courseID) =>
-    `http://127.0.0.1:8000/apis/students/course/${courseID}/`,
+    `${SERVER}/apis/students/course/${courseID}/`,
+  FINANCIAL_AID: (courseID) =>
+      `${SERVER}/apis/courses/${courseID}/financial-aid/`,
   TEACHER_COURSE_DETAIL: (courseID) =>
-    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/`,
+    `${SERVER}/apis/teachers/course/${courseID}/`,
   TEACHER_COURSE_GET_STUDENTS: (courseID) =>
-    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/setting/students/`,
+    `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
   TEACHER_SET_STUDENT_ACCESS: (courseID) =>
-    `http://127.0.0.1:8000/apis/teachers/course/${courseID}/setting/students/`,
+    `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
 };
 
 export default SERVER_APIS;
