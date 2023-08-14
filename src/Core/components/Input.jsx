@@ -13,6 +13,7 @@ export default function Input({
   placeholder,
   customClass,
   error,
+    style={}
 }) {
   return (
     <div className="my-5" style={{marginBottom:"20px"}}>
@@ -28,6 +29,7 @@ export default function Input({
         required={isRequired}
         className={fixedInputClass + customClass}
         placeholder={placeholder}
+        style={style}
       />
       <p className="signup_error">{error}</p>
     </div>

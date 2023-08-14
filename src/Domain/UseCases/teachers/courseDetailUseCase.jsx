@@ -1,15 +1,20 @@
 import {
   teacherCourseDetailRepository,
-  teacherCourseDetailGerStudentsSettingRepository,
+  teacherCourseDetailGetStudentsFinancialAidsRepository,
   teacherCourseDetailSetStudentAccessRepository,
+  teacherCourseDetailAcceptFinancialAidsRepository
 } from "../../../Data/Repositories/Teachers/courseDetailRespository.js";
 
 async function teacherCourseDetailUseCase(courseId) {
   return await teacherCourseDetailRepository(courseId);
 }
 
-async function teacherCourseDetailGerStudentsSettingUseCase(courseId) {
-  return await teacherCourseDetailGerStudentsSettingRepository(courseId);
+async function teacherCourseDetailGetStudentsFinancialAidsUseCase(courseId) {
+  return await teacherCourseDetailGetStudentsFinancialAidsRepository(courseId);
+}
+
+async function teacherCourseDetailAcceptFinancialAidsUseCase(props) {
+  return await teacherCourseDetailAcceptFinancialAidsRepository(props);
 }
 
 async function teacherCourseDetailSetStudentAccessUseCase(courseId, data) {
@@ -18,6 +23,7 @@ async function teacherCourseDetailSetStudentAccessUseCase(courseId, data) {
 
 export {
   teacherCourseDetailUseCase,
-  teacherCourseDetailGerStudentsSettingUseCase,
+  teacherCourseDetailGetStudentsFinancialAidsUseCase,
   teacherCourseDetailSetStudentAccessUseCase,
+  teacherCourseDetailAcceptFinancialAidsUseCase
 };

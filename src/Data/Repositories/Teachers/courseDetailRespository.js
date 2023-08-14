@@ -1,14 +1,19 @@
 import {
   teacherCourseDetailAPI,
-  teacherCourseDetailGetStudentsAPI,
+  teacherCourseDetailGetStudentsFinancialAidsAPI,
   teacherCourseDetailSetStudentAccessAPI,
-} from "../../DataSource/API/teachers/CourseDetailAPI";
+  teacherCourseDetailAcceptFinancialAidsAPI
+} from "../../DataSource/API/teachers/CourseDetailAPI.js";
 
 async function teacherCourseDetailRepository(courseId) {
   return await teacherCourseDetailAPI(courseId);
 }
-async function teacherCourseDetailGerStudentsSettingRepository(courseId) {
-  return await teacherCourseDetailGetStudentsAPI(courseId);
+async function teacherCourseDetailGetStudentsFinancialAidsRepository(courseId) {
+  return await teacherCourseDetailGetStudentsFinancialAidsAPI(courseId);
+}
+
+async function teacherCourseDetailAcceptFinancialAidsRepository(props) {
+  return await teacherCourseDetailAcceptFinancialAidsAPI(props);
 }
 
 async function teacherCourseDetailSetStudentAccessRepository(courseId, data) {
@@ -17,6 +22,7 @@ async function teacherCourseDetailSetStudentAccessRepository(courseId, data) {
 
 export {
   teacherCourseDetailRepository,
-  teacherCourseDetailGerStudentsSettingRepository,
+  teacherCourseDetailGetStudentsFinancialAidsRepository,
   teacherCourseDetailSetStudentAccessRepository,
+  teacherCourseDetailAcceptFinancialAidsRepository,
 };

@@ -2,7 +2,7 @@ import CommonFailure from "../../../../Core/Failure/CommonFailures.js";
 import ServerConnectionFailure from "../../../../Core/Failure/ServerConnectionFailure.js";
 import UnknownFailure from "../../../../Core/Failure/UnknownFailure.js";
 import SERVER_APIS from "../../../../Core/constants/ServerAPIs.js";
-import { getRequest, putRequest } from "../../../../Core/security/sendRequest.js";
+import {getRequest, postRequest, putRequest} from "../../../../Core/security/sendRequest.js";
 import {
   TeacherSetStudentResponseModel,
   TeacherCourseDetailModel,
@@ -26,10 +26,10 @@ async function teacherCourseDetailAPI(courseId) {
   }
 }
 
-async function teacherCourseDetailGetStudentsAPI(courseId) {
+async function teacherCourseDetailGetStudentsFinancialAidsAPI(courseId) {
   try {
     const response = await getRequest({
-      url: SERVER_APIS.TEACHER_COURSE_GET_STUDENTS(courseId),
+      url: SERVER_APIS.TEACHER_COURSE_GET_FINANCIAL_AIDS(courseId),
     });
     return response.data;
   } catch (error) {
@@ -43,6 +43,27 @@ async function teacherCourseDetailGetStudentsAPI(courseId) {
     }
   }
 }
+
+
+async function teacherCourseDetailAcceptFinancialAidsAPI(props) {
+  try {
+    const response = await postRequest({
+      url: SERVER_APIS.TEACHER_COURSE_GET_FINANCIAL_AIDS(props.courseId),
+      data: props.data,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      return new CommonFailure(error.response.data);
+    } else if (error.request) {
+      return new ServerConnectionFailure();
+    } else {
+      console.log(error);
+      return new UnknownFailure();
+    }
+  }
+}
+
 
 async function teacherCourseDetailSetStudentAccessAPI(courseId, data) {
   try {
@@ -66,6 +87,7 @@ async function teacherCourseDetailSetStudentAccessAPI(courseId, data) {
 
 export {
   teacherCourseDetailAPI,
-  teacherCourseDetailGetStudentsAPI,
+  teacherCourseDetailGetStudentsFinancialAidsAPI,
   teacherCourseDetailSetStudentAccessAPI,
+  teacherCourseDetailAcceptFinancialAidsAPI
 };

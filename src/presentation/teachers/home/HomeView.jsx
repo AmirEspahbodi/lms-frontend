@@ -10,12 +10,21 @@ import {
   goToSession,
   showSemester,
 } from "../../../Core/utils/utilsFuncs.js";
-import authProcces from "../../../Core/security/auth.js";
 import checkPermission from "../../../Core/security/checkPermission.js";
 import AuthContext from "../../../Core/contexts/root-context.jsx";
 import APP_ROUTES from "../../../Core/constants/Routs.js";
 
 export default function TeacherHomeView() {
+  const navigate = useNavigate()
+  const authContext = useContext(AuthContext);
+  if (authContext.isAuthenticated !== null && authContext.isAuthenticated===false) {
+    navigate(APP_ROUTES.LOGIN_USER);
+  } else if (authContext.isAuthenticated === true && authContext.user.role % 3 !== 0){
+    console.log("in teacher home authContext.user.role")
+    console.log(authContext.user.role)
+    navigate(APP_ROUTES.SPLASH);
+  }
+
   const [courses, setCourses] = useState([]);
   const [exams, setExams] = useState([]);
   const [assignments, setEssignments] = useState([]);
@@ -37,12 +46,6 @@ export default function TeacherHomeView() {
   daysOfWeek = daysOfWeek
     .slice(currDay - 1)
     .concat(daysOfWeek.slice(0, currDay - 1));
-
-  const navigate = useNavigate();
-  const authContext = useContext(AuthContext);
-  if (authContext.isAuthenticated === false) {
-    navigate(APP_ROUTES.LOGIN_USER);
-  }
 
   const fetchData = async () => {
     const result = await TeacherHomeUseCase();

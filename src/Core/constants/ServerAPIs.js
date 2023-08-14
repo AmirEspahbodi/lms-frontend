@@ -31,6 +31,8 @@ const SERVER_APIS = {
     `${SERVER}/apis/teachers/course/${courseID}/`,
   TEACHER_COURSE_GET_STUDENTS: (courseID) =>
     `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
+  TEACHER_COURSE_GET_FINANCIAL_AIDS: (courseID) =>
+      `${SERVER}/apis/teachers/course/${courseID}/financial-aids/`,
   TEACHER_SET_STUDENT_ACCESS: (courseID) =>
     `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
 };

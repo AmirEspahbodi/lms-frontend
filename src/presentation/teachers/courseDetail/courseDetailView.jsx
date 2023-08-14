@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
-import Failure from "../../../Core/Failure/Failure.js";
-import { useNavigate, useParams } from "react-router-dom";
-import { goToSession, showWeekDay } from "../../../Core/utils/utilsFuncs.js";
+import {useContext, useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../../styles/course.css";
 import authProcces from "../../../Core/security/auth.js";
 import checkPermission from "../../../Core/security/checkPermission.js";
-import { teacherCourseDetailUseCase } from "../../../Domain/UseCases/teachers/courseDetailUseCase";
-import Header from "../../../Core/components/Header";
-import StudentModal from "./components/studentModal";
 import ExamModal from "./components/examModal";
 import AssignmentModal from "./components/assignmentModal";
 import Sessions from "./components/sessions";
+import FinancialAidsModal from "./components/financialAidModal.jsx";
+import AuthContext from "../../../Core/contexts/root-context.jsx";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
 
 function TeacherCourseDetailView() {
+  const navigate = useNavigate()
+  const authContext = useContext(AuthContext);
+  if (authContext.isAuthenticated !== null && authContext.isAuthenticated===false) {
+    navigate(APP_ROUTES.LOGIN_USER);
+  } else if (authContext.isAuthenticated === true && authContext.user.role % 3 !== 0){
+    navigate(APP_ROUTES.SPLASH);
+  }
+
   const modalTop = 2;
   const modalStartTop = -90;
 
@@ -21,7 +27,6 @@ function TeacherCourseDetailView() {
   const [createAssignmentModalTop, setCreateAssignmentModalTop] =
     useState(modalStartTop);
   const [has_peromission, setPromission] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     authProcces(navigate);
@@ -43,11 +48,10 @@ function TeacherCourseDetailView() {
   if (has_peromission)
     return (
       <>
-        <Header />
         <div className="course-detail-top">
           <div className="course-detail-top-item" onClick={setStudentsModal}>
-            <span>students</span>
-            <StudentModal
+            <span>financial aids</span>
+            <FinancialAidsModal
               closeStudentsModal={closeStudentsModal}
               studentsModalTop={studentsModalTop}
             />
@@ -76,7 +80,6 @@ function TeacherCourseDetailView() {
   else
     return (
       <>
-        <Header />
         <div>
           <p>permission denied!</p>
         </div>

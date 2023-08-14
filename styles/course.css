@@ -151,14 +151,11 @@
 }
 
 .student-modal-item > .student-modal-item-info {
-  flex-grow: 7;
-}
-
-.student-modal-item > .student-modal-item-is_access {
   flex-grow: 1;
 }
 
-.student-modal-item > .student-modal-item-access_inf {
+
+.student-modal-item > .student-modal-item-accept {
   flex-grow: 1;
 }
 

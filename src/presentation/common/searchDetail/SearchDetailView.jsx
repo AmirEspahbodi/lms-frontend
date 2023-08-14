@@ -1,12 +1,19 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Failure from "../../../Core/Failure/Failure.js";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import SearchDetailUseCase from "../../../Domain/UseCases/common/SearchDetailUseCase.js";
 import {showSemester} from "../../../Core/utils/utilsFuncs.js";
 import Modal from "../../../Core/components/Modal.jsx";
 import FinancialAid from "./components/FinancialAid.jsx";
+import AuthContext from "../../../Core/contexts/root-context.jsx";
+import APP_ROUTES from "../../../Core/constants/Routs.js";
 
 export default function SearchDetailView(props) {
+    const navigate = useNavigate()
+    const authContext = useContext(AuthContext);
+    if (authContext.isAuthenticated === false) {
+        navigate(APP_ROUTES.SEARCH);
+    }
     const [courseState, setCourseState] = useState({});
     let [fetched, setFetched] = useState(false);
     const [modalTop, setModalTop] = useState(-100)
@@ -24,6 +31,9 @@ export default function SearchDetailView(props) {
     }
     useEffect(
         ()=>{
+            if (authContext.isAuthenticated === false) {
+                navigate(APP_ROUTES.SEARCH);
+            }
             fetchCourse();
         },
         []
