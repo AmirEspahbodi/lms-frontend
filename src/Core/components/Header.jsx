@@ -77,6 +77,13 @@ export default function Header() {
               >
                 logout all
               </li>
+              {authContext.user.role % 2 === 0 && <li
+                  onClick={async () => {
+                    navigate(APP_ROUTES.STUDENT_FINANCIAL_AIDS);
+                  }}
+              >
+                financial aids
+              </li>}
             </ul>
           </div>
         </div>

@@ -4,11 +4,14 @@ import TeacherHomeRepository from "../../../Data/Repositories/Teachers/homeRepos
 
 export default async function TeacherHomeUseCase() {
   const result = await TeacherHomeRepository();
+  console.log('+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
+  console.log(result)
+  console.log('+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
   if (result instanceof Failure) return result;
   const currDateObj = new Date(result.now);
   const currDateStr = `${currDateObj.getFullYear()}/${currDateObj.getMonth()}/${currDateObj.getDate()}`;
 
-  let weeklyData = [[], [], [], [], [], [], [], []];
+  let weeklyData = [[], [], [], [], [], [], []];
   let next48h = [];
   let exams = [];
   let assignments = [];
@@ -19,6 +22,8 @@ export default async function TeacherHomeUseCase() {
     tdate = new Date(session.date.replace("-", "/").replace("-", "/"));
     tdatestr = `${tdate.getFullYear()}/${tdate.getMonth()}/${tdate.getDate()}`;
     diff = dateSub(currDateStr, tdatestr);
+    console.log(diff.day)
+    console.log(session)
     if (diff.day <= 2) next48h.push(session);
     weeklyData[diff.day].push(session);
     if (session.exams.length !== 0) {

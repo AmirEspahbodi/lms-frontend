@@ -22,6 +22,7 @@ const SERVER_APIS = {
   STUDENT_HOME: `${SERVER}/apis/students/home/`,
   TEACHER_HOME: `${SERVER}/apis/teachers/home/`,
   COURSE_SEARCH: `${SERVER}/apis/courses/search/`,
+  STUDENT_FINANCIAL_AIDS: `${SERVER}/apis/students/financial-aids/`,
   COURSE_SEARCH_DETAIL: (courseID) =>`${SERVER}/apis/courses/search/${courseID}/`,
   STUDENT_COURSE_DETAIL: (courseID) =>
     `${SERVER}/apis/students/course/${courseID}/`,
@@ -33,8 +34,8 @@ const SERVER_APIS = {
     `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
   TEACHER_COURSE_GET_FINANCIAL_AIDS: (courseID) =>
       `${SERVER}/apis/teachers/course/${courseID}/financial-aids/`,
-  TEACHER_SET_STUDENT_ACCESS: (courseID) =>
-    `${SERVER}/apis/teachers/course/${courseID}/setting/students/`,
+  TEACHER_SESSION: (sessionID) =>
+    `${SERVER}/apis/teachers/session/${sessionID}/`,
 };
 
 export default SERVER_APIS;

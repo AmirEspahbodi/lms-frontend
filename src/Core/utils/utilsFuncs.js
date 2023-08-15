@@ -29,7 +29,7 @@ function goToCourse(e, id, navigate) {
 }
 
 function goToSession(e, id, navigate) {
-  console.log(`goToSession ${id}`);
+  navigate(APP_ROUTES.TEACHER_SESSION.replace(':sessionId', id))
 }
 
 function dateSub(currDate, theData) {

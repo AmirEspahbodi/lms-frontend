@@ -16,6 +16,8 @@ import AuthContext from "./Core/contexts/root-context.jsx";
 import getAuthenticatedUser from "./Core/security/auth.js";
 import SearchView from "./presentation/common/search/SearchView.jsx";
 import SearchDetailView from "./presentation/common/searchDetail/SearchDetailView.jsx";
+import StudentFinancialAidResultView from "./presentation/students/FinancialAidResults/FinancialAidResultView.jsx";
+import TeacherSessionView from "./presentation/teachers/session/TeacherSessionView.jsx";
 
 function App() {
   const authContext = useContext(AuthContext);
@@ -61,11 +63,13 @@ function App() {
             element={<SearchDetailView />}
         />
         <Route path={APP_ROUTES.STUDENT_HOME} element={<StudentHomeView />} />
+        <Route path={APP_ROUTES.STUDENT_FINANCIAL_AIDS} element={<StudentFinancialAidResultView />} />
         <Route
             path={APP_ROUTES.STUDENT_COURSE_DETAIL}
             element={<StudentCourseDetailView />}
         />
         <Route path={APP_ROUTES.TEACHER_HOME} element={<TeacherHomeView />} />
+        <Route path={APP_ROUTES.TEACHER_SESSION} element={<TeacherSessionView />} />
         <Route
             path={APP_ROUTES.TEACHER_COURSE_DETAIL}
             element={<TeacherCourseDetailView />}

@@ -1,6 +1,8 @@
 export default function ExamModal({
   closeCreateExamModal,
   createExamModalTop,
+  fetchSessionData,
+  sessionId
 }) {
   return (
     <div

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { teacherCourseDetailUseCase } from "../../../../Domain/UseCases/teachers/courseDetailUseCase";
-import { useParams } from "react-router-dom";
+import { teacherCourseDetailUseCase } from "../../../../Domain/UseCases/teachers/courseDetailUseCase.js";
+import {useNavigate, useParams} from "react-router-dom";
 import Failure from "../../../../Core/Failure/Failure.js";
-import { showWeekDay } from "../../../../Core/utils/utilsFuncs.js";
+import {goToSession, showWeekDay} from "../../../../Core/utils/utilsFuncs.js";
 
 export default function Sessions() {
+  const navigate = useNavigate()
   const [sessions, setSessions] = useState([]);
+  const { courseId } = useParams();
 
   const fetchData = async () => {
     const result = await teacherCourseDetailUseCase(courseId);
@@ -19,15 +21,17 @@ export default function Sessions() {
   useEffect(() => {
     fetchData();
   }, []);
-  let { courseId } = useParams();
   return (
     <div className="sessions">
       {sessions.map((session) => {
         return (
-          <div onClick={(e) => goToSession(e, session?.id)} key={session.id}>
+          <div key={session.id}>
             <div className="session">
               <div className="session-name">
-                <p>session {session.session_number}</p>
+                <p
+                    onClick={(e) => goToSession(e, session?.id, navigate)}
+                    style={{cursor:'pointer'}}
+                >session {session.session_number}</p>
               </div>
               <div className="session-time">
                 <span>{session.date}</span>

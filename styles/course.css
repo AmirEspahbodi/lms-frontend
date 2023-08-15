@@ -49,10 +49,12 @@
 }
 
 .daily-calendar-top > .calendar-top-item {
+  flex-grow: 1;
   background-color: rgba(150, 150, 150, 0.2);
   border-radius: 10px;
   padding: 10px;
 }
+.calendar-wrapper-item{}
 
 .calendar-wrapper-item-body {
   margin: auto 20px;
@@ -203,4 +205,16 @@
 .has-access-no {
   color: red;
   font-weight: 700;
+}
+
+.assignment,
+.exam {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.3);
+  min-width: 300px;
 }

@@ -1,6 +1,8 @@
 export default function AssignmentModal({
   closeCreateAssignmentModal,
   createAssignmentModalTop,
+  fetchSessionData,
+  sessionId
 }) {
   return (
     <div

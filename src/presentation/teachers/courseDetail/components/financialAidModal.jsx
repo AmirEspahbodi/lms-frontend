@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   teacherCourseDetailGetStudentsFinancialAidsUseCase,
   teacherCourseDetailAcceptFinancialAidsUseCase
-} from "../../../../Domain/UseCases/teachers/courseDetailUseCase";
+} from "../../../../Domain/UseCases/teachers/courseDetailUseCase.js";
 import { useParams } from "react-router-dom";
 import Failure from "../../../../Core/Failure/Failure.js";
 

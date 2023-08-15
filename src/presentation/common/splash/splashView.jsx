@@ -8,15 +8,12 @@ import AuthContext from "../../../Core/contexts/root-context.jsx";
 function SplashView() {
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
-  console.log("in SplashView")
-  const user = authContext.user;
-  if (authContext.isAuthenticated===false) {
+  if (authContext.isAuthenticated !== null && authContext.isAuthenticated===false) {
     navigate(APP_ROUTES.LOGIN_USER);
-  }
-  else if (user.user_id!=null) {
-    if (user.role % 2 == 0) navigate(APP_ROUTES.STUDENT_HOME);
-    else if (user.role % 3 == 0) navigate(APP_ROUTES.TEACHER_HOME);
-    else navigate(APP_ROUTES.NO_PAGE_FOR_YOUR_ROLE);
+  } else if (authContext.isAuthenticated === true && authContext.user.role % 2 === 0){
+    navigate(APP_ROUTES.STUDENT_HOME);
+  } else if (authContext.isAuthenticated === true && authContext.user.role % 3 === 0){
+    navigate(APP_ROUTES.TEACHER_HOME);
   }
   useEffect(() => {
   }, []);
